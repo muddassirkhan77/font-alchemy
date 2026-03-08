@@ -42,7 +42,22 @@ const FontGenerator = () => {
     return (
       <div
         key={key}
-        className="group rounded-xl border border-border bg-secondary/40 p-5 transition-all duration-200 hover:border-accent/40"
+        className="group rounded-xl p-5 transition-all duration-300"
+        style={{
+          background: 'hsl(var(--primary))',
+          border: '1.5px solid hsl(var(--accent) / 0.15)',
+          boxShadow: '0 0 0 0 hsl(var(--accent) / 0)',
+        }}
+        onMouseEnter={e => {
+          e.currentTarget.style.borderColor = 'hsl(var(--accent) / 0.5)';
+          e.currentTarget.style.boxShadow = '0 0 18px 0 hsl(var(--accent) / 0.15)';
+          e.currentTarget.style.transform = 'translateY(-2px)';
+        }}
+        onMouseLeave={e => {
+          e.currentTarget.style.borderColor = 'hsl(var(--accent) / 0.15)';
+          e.currentTarget.style.boxShadow = '0 0 0 0 hsl(var(--accent) / 0)';
+          e.currentTarget.style.transform = 'translateY(0)';
+        }}
       >
         <p className="text-xs font-semibold text-muted-foreground mb-2 uppercase tracking-wider">
           {name}
