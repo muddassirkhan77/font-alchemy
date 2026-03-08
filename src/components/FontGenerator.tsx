@@ -1,22 +1,21 @@
 import { useState, useCallback } from 'react';
 import { RotateCcw, Check, Copy } from 'lucide-react';
-import { getStylesByCategory, type FontStyle } from '@/lib/unicodeFonts';
+import { calligraphyCategories } from '@/lib/calligraphyFonts';
 import { instagramCategories, type InstaStyle } from '@/lib/instagramFonts';
 
 const MAX_CHARS = 200;
+const DEFAULT_PREVIEW = 'FontiFy Preview';
 
 const FontGenerator = () => {
   const [text, setText] = useState('');
   const [tab, setTab] = useState<'calligraphy' | 'instagram'>('calligraphy');
   const [copiedKey, setCopiedKey] = useState<string | null>(null);
 
-  const calligraphyStyles = getStylesByCategory('calligraphy');
+  const displayText = text.length > 0 ? text : DEFAULT_PREVIEW;
 
   const handleCopy = useCallback(async (transformed: string, key: string) => {
     try {
       await navigator.clipboard.writeText(transformed);
-      setCopiedKey(key);
-      setTimeout(() => setCopiedKey(null), 1500);
     } catch {
       const ta = document.createElement('textarea');
       ta.value = transformed;
@@ -24,9 +23,9 @@ const FontGenerator = () => {
       ta.select();
       document.execCommand('copy');
       document.body.removeChild(ta);
-      setCopiedKey(key);
-      setTimeout(() => setCopiedKey(null), 1500);
     }
+    setCopiedKey(key);
+    setTimeout(() => setCopiedKey(null), 1500);
   }, []);
 
   const renderStyleCard = (key: string, name: string, transformed: string) => {
@@ -39,7 +38,7 @@ const FontGenerator = () => {
         <p className="text-xs font-semibold text-muted-foreground mb-2 uppercase tracking-wider">
           {name}
         </p>
-        <p className="text-lg leading-relaxed break-all mb-4 min-h-[2.5rem] text-foreground">
+        <p className="text-xl leading-relaxed break-all mb-4 min-h-[3rem] text-foreground text-center">
           {transformed}
         </p>
         <button
@@ -103,19 +102,34 @@ const FontGenerator = () => {
           </div>
         </div>
 
-        {/* Results */}
-        {text.length > 0 && tab === 'calligraphy' && (
-          <div className="mt-8 grid grid-cols-1 gap-4 md:grid-cols-2">
-            {calligraphyStyles.map((style: FontStyle) => {
-              const transformed = style.transformFn(text);
-              return renderStyleCard(style.key, style.name, transformed);
-            })}
+        {/* Calligraphy Results - always visible with default or user text */}
+        {tab === 'calligraphy' && (
+          <div className="mt-8 space-y-8">
+            {calligraphyCategories.map((cat) => (
+              <div key={cat.id}>
+                <h3 className="text-sm font-bold uppercase tracking-widest text-accent mb-4 border-b border-accent/20 pb-2">
+                  {cat.label}
+                </h3>
+                <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
+                  {cat.styles.map((style) => {
+                    const transformed = style.transformFn(displayText);
+                    return renderStyleCard(style.key, style.name, transformed);
+                  })}
+                </div>
+              </div>
+            ))}
           </div>
         )}
 
-        {text.length > 0 && tab === 'instagram' && (
+        {/* Instagram Results */}
+        {tab === 'instagram' && (
           <div className="mt-8 space-y-8">
-            {instagramCategories.map((cat) => (
+            {text.length === 0 && (
+              <div className="text-center py-6 text-muted-foreground">
+                <p className="text-sm">Start typing above to see your text in 150+ Instagram font styles</p>
+              </div>
+            )}
+            {text.length > 0 && instagramCategories.map((cat) => (
               <div key={cat.name}>
                 <h3 className="text-sm font-bold uppercase tracking-widest text-accent mb-4 border-b border-accent/20 pb-2">
                   {cat.name}
@@ -128,15 +142,6 @@ const FontGenerator = () => {
                 </div>
               </div>
             ))}
-          </div>
-        )}
-
-        {text.length === 0 && (
-          <div className="mt-8 text-center py-12 text-muted-foreground">
-            <p className="text-sm">
-              Start typing above to see your text transformed into{' '}
-              {tab === 'calligraphy' ? '30+' : '150+'} unique styles
-            </p>
           </div>
         )}
       </div>
