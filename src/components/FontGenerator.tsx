@@ -1,4 +1,4 @@
-import { useState, useCallback } from 'react';
+import { useState, useCallback, useEffect } from 'react';
 import { RotateCcw, Check, Copy } from 'lucide-react';
 import { calligraphyCategories } from '@/lib/calligraphyFonts';
 import { instagramCategories, type InstaStyle } from '@/lib/instagramFonts';
