@@ -116,7 +116,7 @@ const Header = () => {
       <div className="section-container flex items-center justify-between py-3">
         {/* Brand */}
         <a href="#hero" className="flex items-center gap-2">
-          <Crown className="h-6 w-6 text-accent" />
+          <img src={logo} alt="FontiFy Logo" className="h-9 w-auto" />
           <span className="font-heading text-xl font-bold gold-gradient-text">FontiFy</span>
         </a>
 
