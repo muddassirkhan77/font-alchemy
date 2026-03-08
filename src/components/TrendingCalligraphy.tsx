@@ -1,12 +1,12 @@
 import { useState, useCallback } from 'react';
 import { Check, Copy, Flame } from 'lucide-react';
-import { getStylesByCategory } from '@/lib/unicodeFonts';
+import { getTrendingCalligraphy } from '@/lib/calligraphyFonts';
 
 const SAMPLE = 'The Art of Writing';
 
 const TrendingCalligraphy = () => {
   const [copiedKey, setCopiedKey] = useState<string | null>(null);
-  const styles = getStylesByCategory('calligraphy').slice(0, 6);
+  const styles = getTrendingCalligraphy();
 
   const handleCopy = useCallback(async (transformed: string, key: string) => {
     try {
@@ -44,7 +44,7 @@ const TrendingCalligraphy = () => {
               <p className="text-xs font-semibold text-muted-foreground mb-2 uppercase tracking-wider">
                 {style.name}
               </p>
-              <p className="text-lg mb-4 break-all text-foreground">{transformed}</p>
+              <p className="text-xl mb-4 break-all text-foreground">{transformed}</p>
               <button
                 onClick={() => handleCopy(transformed, `trending-${style.key}`)}
                 className={`inline-flex items-center gap-2 rounded-lg px-4 py-2 text-xs font-semibold transition-all duration-200 ${
