@@ -40,7 +40,7 @@ const TrendingCalligraphy = () => {
           const transformed = style.transformFn(SAMPLE);
           const isCopied = copiedKey === `trending-${style.key}`;
           return (
-            <div key={style.key} className="card-premium p-5">
+            <div key={style.key} className="card-premium p-6">
               <div className="flex items-center justify-between mb-3">
                 <p className="text-xs font-semibold uppercase tracking-wider" style={{ color: 'hsl(0 0% 85%)' }}>
                   {style.name}
