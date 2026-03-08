@@ -42,49 +42,42 @@ const FontGenerator = () => {
     return (
       <div
         key={key}
-        className="group rounded-2xl overflow-hidden transition-all duration-400"
+        className="group rounded-2xl overflow-hidden p-5 transition-all duration-400"
         style={{
-          background: 'hsl(var(--secondary))',
-          border: '1.5px solid hsl(var(--accent) / 0.12)',
-          boxShadow: '0 0 0 0 hsl(var(--accent) / 0)',
+          background: 'hsl(218 50% 15%)',
+          border: '1.5px solid hsl(218 40% 24%)',
         }}
         onMouseEnter={e => {
-          e.currentTarget.style.borderColor = 'hsl(var(--accent) / 0.6)';
-          e.currentTarget.style.boxShadow = '0 0 30px 0 hsl(var(--accent) / 0.2), 0 0 60px -10px hsl(var(--accent) / 0.1)';
+          e.currentTarget.style.borderColor = 'hsl(218 40% 32%)';
+          e.currentTarget.style.boxShadow = '0 0 30px 0 hsl(43 56% 52% / 0.12)';
           e.currentTarget.style.transform = 'translateY(-4px) scale(1.01)';
         }}
         onMouseLeave={e => {
-          e.currentTarget.style.borderColor = 'hsl(var(--accent) / 0.12)';
-          e.currentTarget.style.boxShadow = '0 0 0 0 hsl(var(--accent) / 0)';
+          e.currentTarget.style.borderColor = 'hsl(218 40% 24%)';
+          e.currentTarget.style.boxShadow = 'none';
           e.currentTarget.style.transform = 'translateY(0) scale(1)';
         }}
       >
-        {/* Light header area */}
-        <div className="px-5 pt-4 pb-2">
-          <p className="text-xs font-semibold uppercase tracking-wider" style={{ color: 'hsl(var(--foreground))' }}>
-            {name}
-          </p>
-        </div>
-        {/* Dark preview area */}
-        <div className="mx-3 mb-3 rounded-xl px-4 py-4" style={{ background: 'hsl(var(--primary))' }}>
-          <p className="text-xl leading-relaxed break-all min-h-[3rem] text-center" style={{ color: 'hsl(0 0% 100%)' }}>
+        <p className="text-xs font-semibold mb-2 uppercase tracking-wider" style={{ color: 'hsl(0 0% 85%)' }}>
+          {name}
+        </p>
+        <div className="rounded-xl px-4 py-4 mb-4" style={{ background: 'hsl(218 55% 11%)' }}>
+          <p className="text-xl leading-relaxed break-all min-h-[3rem] text-center" style={{ color: 'hsl(0 0% 92%)' }}>
             {transformed}
           </p>
         </div>
-        <div className="px-5 pb-4">
-          <button
-            onClick={() => handleCopy(transformed, key)}
-            className={`inline-flex items-center gap-2 rounded-lg px-4 py-2 text-xs font-semibold transition-all duration-200 ${
-              isCopied ? 'btn-copy-success' : 'btn-navy'
-            }`}
-          >
-            {isCopied ? (
-              <><Check className="h-3.5 w-3.5" /> Copied ✓</>
-            ) : (
-              <><Copy className="h-3.5 w-3.5" /> Copy</>
-            )}
-          </button>
-        </div>
+        <button
+          onClick={() => handleCopy(transformed, key)}
+          className={`inline-flex items-center gap-2 rounded-lg px-4 py-2 text-xs font-semibold transition-all duration-200 ${
+            isCopied ? 'btn-copy-success' : 'btn-navy'
+          }`}
+        >
+          {isCopied ? (
+            <><Check className="h-3.5 w-3.5" /> Copied ✓</>
+          ) : (
+            <><Copy className="h-3.5 w-3.5" /> Copy</>
+          )}
+        </button>
       </div>
     );
   };
