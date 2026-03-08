@@ -98,9 +98,8 @@ const FontGenerator = () => {
           <textarea
             className="input-premium min-h-[120px]"
             placeholder="Type your text here..."
-            maxLength={MAX_CHARS}
             value={text}
-            onChange={e => setText(e.target.value.slice(0, MAX_CHARS))}
+            onChange={e => setText(e.target.value)}
           />
           <div className="mt-2 flex items-center justify-between">
             <span className="text-xs text-muted-foreground">
