@@ -115,8 +115,8 @@ const Header = () => {
     <header className="sticky top-0 z-50 border-b border-border bg-card/80 backdrop-blur-md">
       <div className="section-container flex items-center justify-between py-3">
         {/* Brand */}
-        <a href="#hero" className="flex items-center rounded-lg p-1.5" style={{ background: 'hsl(218 68% 14%)' }}>
-          <img src={logo} alt="FontiFy Logo" className="h-16 w-auto" />
+        <a href="#hero" className="flex items-center rounded-lg p-2" style={{ background: 'hsl(218 68% 14%)' }}>
+          <img src={logo} alt="FontiFy Logo" className="h-12 w-auto" />
         </a>
 
         {/* Desktop nav */}
