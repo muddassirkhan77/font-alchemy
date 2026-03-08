@@ -67,11 +67,11 @@ const CompareFonts = () => {
         />
       </div>
 
-      <div className="mx-auto max-w-4xl grid grid-cols-1 gap-4 md:grid-cols-3">
+      <div className="mx-auto max-w-4xl grid grid-cols-1 gap-6 md:grid-cols-3">
         {[0, 1, 2].map(i => {
           const isCopied = copiedKey === `compare-${i}`;
           return (
-            <div key={i} className="card-premium p-5">
+            <div key={i} className="card-premium p-6">
               <div className="flex items-center justify-between mb-3">
                 <select
                 value={selections[i]}

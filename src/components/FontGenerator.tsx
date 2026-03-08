@@ -42,7 +42,7 @@ const FontGenerator = () => {
     return (
       <div
         key={key}
-        className="card-premium rounded-2xl overflow-hidden p-5 transition-all duration-400"
+        className="card-premium rounded-2xl overflow-hidden p-6 transition-all duration-400"
       >
         <div className="flex items-center justify-between mb-3">
           <p className="text-xs font-semibold uppercase tracking-wider" style={{ color: 'hsl(0 0% 85%)' }}>
@@ -61,8 +61,8 @@ const FontGenerator = () => {
             )}
           </button>
         </div>
-        <div className="rounded-xl px-4 py-5" style={{ background: 'hsl(218 55% 11%)' }}>
-          <p className="text-xl leading-relaxed break-all min-h-[3rem] text-center" style={{ color: 'hsl(0 0% 92%)' }}>
+        <div className="rounded-xl px-5 py-6" style={{ background: 'hsl(218 55% 11%)' }}>
+          <p className="text-2xl leading-relaxed break-all min-h-[3.5rem] text-center" style={{ color: 'hsl(0 0% 92%)' }}>
             {transformed}
           </p>
         </div>
@@ -122,7 +122,7 @@ const FontGenerator = () => {
                 <h3 className="text-sm font-bold uppercase tracking-widest text-accent mb-4 border-b border-accent/20 pb-2">
                   {cat.label}
                 </h3>
-                <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
+                <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
                   {cat.styles.map((style) => {
                     const transformed = style.transformFn(displayText);
                     return renderStyleCard(style.key, style.name, transformed);
@@ -141,7 +141,7 @@ const FontGenerator = () => {
                 <h3 className="text-sm font-bold uppercase tracking-widest text-accent mb-4 border-b border-accent/20 pb-2">
                   {cat.name}
                 </h3>
-                <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
+                <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
                   {cat.styles.map((style: InstaStyle) => {
                     const transformed = style.transformFn(displayText);
                     return renderStyleCard(style.key, style.name, transformed);

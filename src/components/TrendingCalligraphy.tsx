@@ -35,12 +35,12 @@ const TrendingCalligraphy = () => {
         Most popular calligraphy styles this week
       </p>
 
-      <div className="mx-auto max-w-4xl grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
+      <div className="mx-auto max-w-4xl grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
         {styles.map(style => {
           const transformed = style.transformFn(SAMPLE);
           const isCopied = copiedKey === `trending-${style.key}`;
           return (
-            <div key={style.key} className="card-premium p-5">
+            <div key={style.key} className="card-premium p-6">
               <div className="flex items-center justify-between mb-3">
                 <p className="text-xs font-semibold uppercase tracking-wider" style={{ color: 'hsl(0 0% 85%)' }}>
                   {style.name}
@@ -54,8 +54,8 @@ const TrendingCalligraphy = () => {
                   {isCopied ? <><Check className="h-3.5 w-3.5" /> Copied</> : <><Copy className="h-3.5 w-3.5" /> Copy</>}
                 </button>
               </div>
-              <div className="rounded-xl px-4 py-5" style={{ background: 'hsl(218 55% 11%)' }}>
-                <p className="text-xl break-all text-center" style={{ color: 'hsl(0 0% 92%)' }}>{transformed}</p>
+              <div className="rounded-xl px-5 py-6" style={{ background: 'hsl(218 55% 11%)' }}>
+                <p className="text-2xl break-all text-center" style={{ color: 'hsl(0 0% 92%)' }}>{transformed}</p>
               </div>
             </div>
           );
