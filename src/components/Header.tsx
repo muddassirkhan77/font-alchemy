@@ -3,8 +3,8 @@ import { Menu, X, Crown } from 'lucide-react';
 
 const navLinks = [
   { label: 'Home', href: '#hero' },
-  { label: 'Calligraphy', href: '#tool' },
-  { label: 'Instagram', href: '#tool' },
+  { label: 'Calligraphy', href: '#tool', tab: 'calligraphy' as const },
+  { label: 'Instagram', href: '#tool', tab: 'instagram' as const },
   { label: 'Tips', href: '#tips' },
   { label: 'Premium', href: '#premium' },
   { label: 'Contact', href: '#footer' },
@@ -30,6 +30,11 @@ const Header = () => {
               key={link.label}
               href={link.href}
               className="text-sm font-medium text-muted-foreground transition-colors hover:text-foreground"
+              onClick={() => {
+                if (link.tab) {
+                  window.dispatchEvent(new CustomEvent('fontify-tab', { detail: link.tab }));
+                }
+              }}
             >
               {link.label}
             </a>
@@ -64,7 +69,12 @@ const Header = () => {
               key={link.label}
               href={link.href}
               className="text-sm font-medium text-muted-foreground transition-colors hover:text-foreground py-1"
-              onClick={() => setIsOpen(false)}
+              onClick={() => {
+                setIsOpen(false);
+                if (link.tab) {
+                  window.dispatchEvent(new CustomEvent('fontify-tab', { detail: link.tab }));
+                }
+              }}
             >
               {link.label}
             </a>
