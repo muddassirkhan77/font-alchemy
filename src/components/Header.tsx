@@ -1,7 +1,7 @@
 import { useState, useCallback, useRef, useEffect } from 'react';
 import { Menu, X, Crown, ChevronDown, ChevronUp } from 'lucide-react';
 import { instagramCategories } from '@/lib/instagramFonts';
-import logo from '@/assets/logo.webp';
+import logo from '@/assets/logo.png';
 
 const navLinks = [
   { label: 'Home', href: '#hero' },
@@ -115,15 +115,13 @@ const Header = () => {
     <header className="sticky top-0 z-50 border-b border-border bg-card/80 backdrop-blur-md">
       <div className="section-container flex items-center justify-between py-3">
         {/* Brand */}
-        <a href="#hero" className="flex items-center gap-3">
-          <div className="flex items-center">
-            <img src={logo} alt="FontiFy Logo" className="h-14 w-auto" />
-          </div>
-          <span className="font-heading text-2xl font-bold gold-gradient-text tracking-tight">FontiFy</span>
+        <a href="#hero" className="flex items-center gap-2">
+          <img src={logo} alt="FontiFy Logo" className="h-16 w-auto" />
+          <span className="font-heading text-3xl font-bold gold-gradient-text tracking-tight">FontiFy</span>
         </a>
 
         {/* Desktop nav */}
-        <nav className="hidden items-center gap-6 md:flex" aria-label="Main navigation">
+        <nav className="hidden items-center gap-4 md:flex" aria-label="Main navigation">
           <a href="#hero" className="text-sm font-medium text-muted-foreground transition-colors hover:text-foreground">Home</a>
           <a
             href="#tool"
