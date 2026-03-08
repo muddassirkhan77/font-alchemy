@@ -76,7 +76,7 @@ const CompareFonts = () => {
                 <select
                 value={selections[i]}
                 onChange={e => updateSelection(i, e.target.value)}
-                className="w-full rounded-lg border border-border bg-background px-3 py-2 text-sm text-foreground mb-4 focus:outline-none focus:ring-2 focus:ring-accent/30"
+                className="flex-1 rounded-lg border border-border bg-background px-3 py-2 text-sm text-foreground focus:outline-none focus:ring-2 focus:ring-accent/30"
               >
                 {allStyles.map(s => (
                   <option key={s.key} value={s.key}>{s.name}</option>
