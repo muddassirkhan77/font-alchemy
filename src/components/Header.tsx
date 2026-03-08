@@ -116,8 +116,8 @@ const Header = () => {
       <div className="section-container flex items-center justify-between py-3">
         {/* Brand */}
         <a href="#hero" className="flex items-center gap-3">
-          <div className="flex items-center rounded-lg p-2" style={{ background: 'hsl(var(--primary))' }}>
-            <img src={logo} alt="FontiFy Logo" className="h-14 w-auto brightness-0 invert-0" style={{ filter: 'brightness(0) saturate(100%) invert(14%) sepia(50%) saturate(1000%) hue-rotate(195deg) brightness(90%) contrast(95%)' }} />
+          <div className="flex items-center">
+            <img src={logo} alt="FontiFy Logo" className="h-14 w-auto" />
           </div>
           <span className="font-heading text-2xl font-bold gold-gradient-text tracking-tight">FontiFy</span>
         </a>
