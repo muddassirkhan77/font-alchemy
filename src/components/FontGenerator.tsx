@@ -42,7 +42,7 @@ const FontGenerator = () => {
     return (
       <div
         key={key}
-        className="card-premium rounded-2xl overflow-hidden p-5 transition-all duration-400"
+        className="card-premium rounded-2xl overflow-hidden p-6 transition-all duration-400"
       >
         <div className="flex items-center justify-between mb-3">
           <p className="text-xs font-semibold uppercase tracking-wider" style={{ color: 'hsl(0 0% 85%)' }}>
