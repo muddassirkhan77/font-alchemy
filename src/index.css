@@ -189,7 +189,6 @@
   }
   .tab-inactive:hover {
     border-color: hsl(var(--accent));
-    color: hsl(var(--foreground));
   }
 
   .section-container {
