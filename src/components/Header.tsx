@@ -204,6 +204,7 @@ const Header = () => {
                 </button>
               </div>
             )}
+          </div>
           <a href="#tips" className="text-sm font-medium text-muted-foreground transition-colors hover:text-foreground">Tips</a>
           <a href="#premium" className="text-sm font-medium text-muted-foreground transition-colors hover:text-foreground">Premium</a>
           <a href="#footer" className="text-sm font-medium text-muted-foreground transition-colors hover:text-foreground">Contact</a>
