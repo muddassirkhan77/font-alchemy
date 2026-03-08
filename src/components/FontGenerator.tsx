@@ -59,10 +59,10 @@ const FontGenerator = () => {
           e.currentTarget.style.transform = 'translateY(0)';
         }}
       >
-        <p className="text-xs font-semibold text-muted-foreground mb-2 uppercase tracking-wider">
+        <p className="text-xs font-semibold mb-2 uppercase tracking-wider" style={{ color: 'hsl(var(--accent))' }}>
           {name}
         </p>
-        <p className="text-xl leading-relaxed break-all mb-4 min-h-[3rem] text-foreground text-center">
+        <p className="text-xl leading-relaxed break-all mb-4 min-h-[3rem] text-center" style={{ color: 'hsl(var(--primary-foreground))' }}>
           {transformed}
         </p>
         <button
