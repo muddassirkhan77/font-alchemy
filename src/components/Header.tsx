@@ -3,8 +3,8 @@ import { Menu, X, Crown } from 'lucide-react';
 
 const navLinks = [
   { label: 'Home', href: '#hero' },
-  { label: 'Calligraphy', href: '#tool' },
-  { label: 'Instagram', href: '#tool' },
+  { label: 'Calligraphy', href: '#tool', tab: 'calligraphy' as const },
+  { label: 'Instagram', href: '#tool', tab: 'instagram' as const },
   { label: 'Tips', href: '#tips' },
   { label: 'Premium', href: '#premium' },
   { label: 'Contact', href: '#footer' },
