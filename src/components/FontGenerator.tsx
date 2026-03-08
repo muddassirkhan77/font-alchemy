@@ -11,6 +11,15 @@ const FontGenerator = () => {
   const [tab, setTab] = useState<'calligraphy' | 'instagram'>('calligraphy');
   const [copiedKey, setCopiedKey] = useState<string | null>(null);
 
+  useEffect(() => {
+    const handler = (e: Event) => {
+      const detail = (e as CustomEvent).detail;
+      if (detail === 'calligraphy' || detail === 'instagram') setTab(detail);
+    };
+    window.addEventListener('fontify-tab', handler);
+    return () => window.removeEventListener('fontify-tab', handler);
+  }, []);
+
   const displayText = text.length > 0 ? text : DEFAULT_PREVIEW;
 
   const handleCopy = useCallback(async (transformed: string, key: string) => {
