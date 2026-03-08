@@ -41,10 +41,10 @@ const TrendingCalligraphy = () => {
           const isCopied = copiedKey === `trending-${style.key}`;
           return (
             <div key={style.key} className="card-premium p-5 text-center">
-              <p className="text-xs font-semibold text-muted-foreground mb-2 uppercase tracking-wider">
+              <p className="text-xs font-semibold mb-2 uppercase tracking-wider" style={{ color: 'hsl(var(--accent))' }}>
                 {style.name}
               </p>
-              <p className="text-xl mb-4 break-all text-foreground">{transformed}</p>
+              <p className="text-xl mb-4 break-all" style={{ color: 'hsl(var(--primary-foreground))' }}>{transformed}</p>
               <button
                 onClick={() => handleCopy(transformed, `trending-${style.key}`)}
                 className={`inline-flex items-center gap-2 rounded-lg px-4 py-2 text-xs font-semibold transition-all duration-200 ${

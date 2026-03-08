@@ -81,7 +81,7 @@ const CompareFonts = () => {
                   <option key={s.key} value={s.key}>{s.name}</option>
                 ))}
               </select>
-              <div className="min-h-[60px] rounded-lg bg-secondary/50 p-4 text-center text-lg break-all text-foreground">
+              <div className="min-h-[60px] rounded-lg p-4 text-center text-lg break-all" style={{ background: 'hsl(var(--secondary) / 0.3)', color: 'hsl(var(--primary-foreground))' }}>
                 {previews[i]}
               </div>
               <button
