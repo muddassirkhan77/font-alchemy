@@ -71,21 +71,20 @@ const FontGenerator = () => {
             {transformed}
           </p>
         </div>
-      </div>
         <div className="px-5 pb-4">
-        </p>
-        <button
-          onClick={() => handleCopy(transformed, key)}
-          className={`inline-flex items-center gap-2 rounded-lg px-4 py-2 text-xs font-semibold transition-all duration-200 ${
-            isCopied ? 'btn-copy-success' : 'btn-navy'
-          }`}
-        >
-          {isCopied ? (
-            <><Check className="h-3.5 w-3.5" /> Copied ✓</>
-          ) : (
-            <><Copy className="h-3.5 w-3.5" /> Copy</>
-          )}
-        </button>
+          <button
+            onClick={() => handleCopy(transformed, key)}
+            className={`inline-flex items-center gap-2 rounded-lg px-4 py-2 text-xs font-semibold transition-all duration-200 ${
+              isCopied ? 'btn-copy-success' : 'btn-navy'
+            }`}
+          >
+            {isCopied ? (
+              <><Check className="h-3.5 w-3.5" /> Copied ✓</>
+            ) : (
+              <><Copy className="h-3.5 w-3.5" /> Copy</>
+            )}
+          </button>
+        </div>
       </div>
     );
   };
