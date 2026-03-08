@@ -209,8 +209,8 @@ const Header = () => {
           <a href="#tips" className="text-sm font-medium text-muted-foreground transition-colors hover:text-foreground">Tips</a>
           <a href="#premium" className="text-sm font-medium text-muted-foreground transition-colors hover:text-foreground">Premium</a>
           <a href="#footer" className="text-sm font-medium text-muted-foreground transition-colors hover:text-foreground">Contact</a>
-          <a href="#premium" className="btn-gold gap-2 text-sm">
-            <Crown className="h-4 w-4" /> Unlock Premium
+          <a href="#premium" className="btn-gold gap-1.5 text-xs px-3 py-1.5">
+            <Crown className="h-3.5 w-3.5" /> Unlock Premium
           </a>
         </nav>
 
