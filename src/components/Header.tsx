@@ -115,9 +115,9 @@ const Header = () => {
     <header className="sticky top-0 z-50 border-b border-border bg-card/80 backdrop-blur-md">
       <div className="section-container flex items-center justify-between py-3">
         {/* Brand */}
-        <a href="#hero" className="flex items-center gap-2">
-          <img src={logo} alt="FontiFy Logo" className="h-16 w-auto" />
-          <span className="font-heading text-3xl font-bold gold-gradient-text tracking-tight">FontiFy</span>
+        <a href="#hero" className="flex items-center gap-1">
+          <img src={logo} alt="FontiFy Logo" className="h-20 w-auto" style={{ filter: 'contrast(1.3)' }} />
+          <span className="font-heading text-3xl font-extrabold gold-gradient-text tracking-tight">FontiFy</span>
         </a>
 
         {/* Desktop nav */}
@@ -209,8 +209,8 @@ const Header = () => {
           <a href="#tips" className="text-sm font-medium text-muted-foreground transition-colors hover:text-foreground">Tips</a>
           <a href="#premium" className="text-sm font-medium text-muted-foreground transition-colors hover:text-foreground">Premium</a>
           <a href="#footer" className="text-sm font-medium text-muted-foreground transition-colors hover:text-foreground">Contact</a>
-          <a href="#premium" className="btn-gold gap-2 text-sm">
-            <Crown className="h-4 w-4" /> Unlock Premium
+          <a href="#premium" className="btn-gold gap-1.5 text-xs px-3 py-1.5">
+            <Crown className="h-3.5 w-3.5" /> Unlock Premium
           </a>
         </nav>
 
