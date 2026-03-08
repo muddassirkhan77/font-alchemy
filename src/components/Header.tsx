@@ -1,6 +1,7 @@
 import { useState, useCallback, useRef, useEffect } from 'react';
 import { Menu, X, Crown, ChevronDown, ChevronUp } from 'lucide-react';
 import { instagramCategories } from '@/lib/instagramFonts';
+import logo from '@/assets/logo.webp';
 
 const navLinks = [
   { label: 'Home', href: '#hero' },
