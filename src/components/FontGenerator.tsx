@@ -130,22 +130,17 @@ const FontGenerator = () => {
           </div>
         )}
 
-        {/* Instagram Results */}
+        {/* Instagram Results - always visible with default or user text */}
         {tab === 'instagram' && (
           <div className="mt-8 space-y-8">
-            {text.length === 0 && (
-              <div className="text-center py-6 text-muted-foreground">
-                <p className="text-sm">Start typing above to see your text in 150+ Instagram font styles</p>
-              </div>
-            )}
-            {text.length > 0 && instagramCategories.map((cat) => (
-              <div key={cat.name}>
+            {instagramCategories.map((cat) => (
+              <div key={cat.name} id={`insta-cat-${cat.name.replace(/\s+/g, '-').toLowerCase()}`}>
                 <h3 className="text-sm font-bold uppercase tracking-widest text-accent mb-4 border-b border-accent/20 pb-2">
                   {cat.name}
                 </h3>
                 <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
                   {cat.styles.map((style: InstaStyle) => {
-                    const transformed = style.transformFn(text);
+                    const transformed = style.transformFn(displayText);
                     return renderStyleCard(style.key, style.name, transformed);
                   })}
                 </div>
