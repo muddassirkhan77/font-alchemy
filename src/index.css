@@ -109,12 +109,15 @@
   }
 
   .card-premium {
-    @apply bg-card rounded-xl border border-border;
-    box-shadow: var(--shadow-card);
-    transition: box-shadow 0.3s ease, transform 0.3s ease;
+    @apply rounded-xl;
+    background: hsl(var(--primary));
+    border: 1.5px solid hsl(var(--accent) / 0.15);
+    box-shadow: 0 0 0 0 hsl(var(--accent) / 0), var(--shadow-card);
+    transition: border-color 0.3s ease, box-shadow 0.4s ease, transform 0.3s ease;
   }
   .card-premium:hover {
-    box-shadow: var(--shadow-card-hover);
+    border-color: hsl(var(--accent) / 0.5);
+    box-shadow: 0 0 20px 0 hsl(var(--accent) / 0.15), var(--shadow-card-hover);
     transform: translateY(-2px);
   }
 
@@ -156,16 +159,19 @@
   }
 
   .input-premium {
-    @apply w-full rounded-xl border-2 p-4 text-base transition-all duration-200 resize-none;
-    border-color: hsl(var(--primary));
-    background: hsl(var(--background));
-    color: hsl(var(--foreground));
+    @apply w-full rounded-xl border-2 p-4 text-base transition-all duration-300 resize-none;
+    border-color: hsl(var(--accent) / 0.2);
+    background: hsl(var(--primary));
+    color: hsl(var(--primary-foreground));
     font-family: var(--font-body);
+  }
+  .input-premium::placeholder {
+    color: hsl(var(--muted-foreground));
   }
   .input-premium:focus {
     outline: none;
-    box-shadow: var(--shadow-gold-glow);
-    border-color: hsl(var(--accent));
+    border-color: hsl(var(--accent) / 0.6);
+    box-shadow: 0 0 20px 0 hsl(var(--accent) / 0.12), var(--shadow-gold-glow);
   }
 
   .tab-active {
