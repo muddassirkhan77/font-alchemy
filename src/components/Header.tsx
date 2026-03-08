@@ -121,7 +121,7 @@ const Header = () => {
         </a>
 
         {/* Desktop nav */}
-        <nav className="hidden items-center gap-6 md:flex" aria-label="Main navigation">
+        <nav className="hidden items-center gap-4 md:flex" aria-label="Main navigation">
           <a href="#hero" className="text-sm font-medium text-muted-foreground transition-colors hover:text-foreground">Home</a>
           <a
             href="#tool"
