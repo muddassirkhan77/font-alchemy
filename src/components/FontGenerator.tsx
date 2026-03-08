@@ -3,7 +3,7 @@ import { RotateCcw, Check, Copy } from 'lucide-react';
 import { calligraphyCategories } from '@/lib/calligraphyFonts';
 import { instagramCategories, type InstaStyle } from '@/lib/instagramFonts';
 
-const MAX_CHARS = 200;
+
 const DEFAULT_PREVIEW = 'FontiFy Preview';
 
 const FontGenerator = () => {
