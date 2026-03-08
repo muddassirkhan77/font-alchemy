@@ -2,7 +2,7 @@ import { Sparkles } from 'lucide-react';
 
 const HeroSection = () => {
   return (
-    <section id="hero" className="section-container py-16 md:py-24 text-center">
+    <section id="hero" className="section-container py-8 md:py-12 text-center">
       <div className="mx-auto max-w-3xl">
         <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-border bg-secondary px-4 py-1.5 text-xs font-semibold text-muted-foreground">
           <Sparkles className="h-3.5 w-3.5 text-accent" />

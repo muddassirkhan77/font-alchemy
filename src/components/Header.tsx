@@ -204,8 +204,9 @@ const Header = () => {
                 </button>
               </div>
             )}
-          </div>
-
+          <a href="#tips" className="text-sm font-medium text-muted-foreground transition-colors hover:text-foreground">Tips</a>
+          <a href="#premium" className="text-sm font-medium text-muted-foreground transition-colors hover:text-foreground">Premium</a>
+          <a href="#footer" className="text-sm font-medium text-muted-foreground transition-colors hover:text-foreground">Contact</a>
           <a href="#premium" className="btn-gold gap-2 text-sm">
             <Crown className="h-4 w-4" /> Unlock Premium
           </a>
