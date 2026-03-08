@@ -1,6 +1,7 @@
 import { useState, useCallback } from 'react';
 import { RotateCcw, Check, Copy } from 'lucide-react';
 import { getStylesByCategory, type FontStyle } from '@/lib/unicodeFonts';
+import { instagramCategories, type InstaStyle } from '@/lib/instagramFonts';
 
 const MAX_CHARS = 200;
 
@@ -9,7 +10,7 @@ const FontGenerator = () => {
   const [tab, setTab] = useState<'calligraphy' | 'instagram'>('calligraphy');
   const [copiedKey, setCopiedKey] = useState<string | null>(null);
 
-  const styles = getStylesByCategory(tab);
+  const calligraphyStyles = getStylesByCategory('calligraphy');
 
   const handleCopy = useCallback(async (transformed: string, key: string) => {
     try {
@@ -17,7 +18,6 @@ const FontGenerator = () => {
       setCopiedKey(key);
       setTimeout(() => setCopiedKey(null), 1500);
     } catch {
-      // fallback
       const ta = document.createElement('textarea');
       ta.value = transformed;
       document.body.appendChild(ta);
@@ -28,6 +28,35 @@ const FontGenerator = () => {
       setTimeout(() => setCopiedKey(null), 1500);
     }
   }, []);
+
+  const renderStyleCard = (key: string, name: string, transformed: string) => {
+    const isCopied = copiedKey === key;
+    return (
+      <div
+        key={key}
+        className="group rounded-xl border border-border bg-secondary/40 p-5 transition-all duration-200 hover:border-accent/40"
+      >
+        <p className="text-xs font-semibold text-muted-foreground mb-2 uppercase tracking-wider">
+          {name}
+        </p>
+        <p className="text-lg leading-relaxed break-all mb-4 min-h-[2.5rem] text-foreground">
+          {transformed}
+        </p>
+        <button
+          onClick={() => handleCopy(transformed, key)}
+          className={`inline-flex items-center gap-2 rounded-lg px-4 py-2 text-xs font-semibold transition-all duration-200 ${
+            isCopied ? 'btn-copy-success' : 'btn-navy'
+          }`}
+        >
+          {isCopied ? (
+            <><Check className="h-3.5 w-3.5" /> Copied ✓</>
+          ) : (
+            <><Copy className="h-3.5 w-3.5" /> Copy</>
+          )}
+        </button>
+      </div>
+    );
+  };
 
   return (
     <section id="tool" className="section-container pb-16">
@@ -74,48 +103,40 @@ const FontGenerator = () => {
           </div>
         </div>
 
-        {/* Results grid */}
-        {text.length > 0 && (
+        {/* Results */}
+        {text.length > 0 && tab === 'calligraphy' && (
           <div className="mt-8 grid grid-cols-1 gap-4 md:grid-cols-2">
-            {styles.map((style: FontStyle) => {
+            {calligraphyStyles.map((style: FontStyle) => {
               const transformed = style.transformFn(text);
-              const isCopied = copiedKey === style.key;
-              return (
-                <div
-                  key={style.key}
-                  className="group rounded-xl border border-border bg-secondary/40 p-5 transition-all duration-200 hover:border-accent/40"
-                >
-                  <p className="text-xs font-semibold text-muted-foreground mb-2 uppercase tracking-wider">
-                    {style.name}
-                  </p>
-                  <p className="text-lg leading-relaxed break-all mb-4 min-h-[2.5rem] text-foreground">
-                    {transformed}
-                  </p>
-                  <button
-                    onClick={() => handleCopy(transformed, style.key)}
-                    className={`inline-flex items-center gap-2 rounded-lg px-4 py-2 text-xs font-semibold transition-all duration-200 ${
-                      isCopied ? 'btn-copy-success' : 'btn-navy'
-                    }`}
-                  >
-                    {isCopied ? (
-                      <>
-                        <Check className="h-3.5 w-3.5" /> Copied ✓
-                      </>
-                    ) : (
-                      <>
-                        <Copy className="h-3.5 w-3.5" /> Copy
-                      </>
-                    )}
-                  </button>
-                </div>
-              );
+              return renderStyleCard(style.key, style.name, transformed);
             })}
+          </div>
+        )}
+
+        {text.length > 0 && tab === 'instagram' && (
+          <div className="mt-8 space-y-8">
+            {instagramCategories.map((cat) => (
+              <div key={cat.name}>
+                <h3 className="text-sm font-bold uppercase tracking-widest text-accent mb-4 border-b border-accent/20 pb-2">
+                  {cat.name}
+                </h3>
+                <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
+                  {cat.styles.map((style: InstaStyle) => {
+                    const transformed = style.transformFn(text);
+                    return renderStyleCard(style.key, style.name, transformed);
+                  })}
+                </div>
+              </div>
+            ))}
           </div>
         )}
 
         {text.length === 0 && (
           <div className="mt-8 text-center py-12 text-muted-foreground">
-            <p className="text-sm">Start typing above to see your text transformed into {tab === 'calligraphy' ? '30+' : '20+'} unique styles</p>
+            <p className="text-sm">
+              Start typing above to see your text transformed into{' '}
+              {tab === 'calligraphy' ? '30+' : '150+'} unique styles
+            </p>
           </div>
         )}
       </div>
