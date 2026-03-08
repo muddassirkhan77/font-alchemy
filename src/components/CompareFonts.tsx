@@ -72,26 +72,28 @@ const CompareFonts = () => {
           const isCopied = copiedKey === `compare-${i}`;
           return (
             <div key={i} className="card-premium p-5">
-              <select
+              <div className="flex items-center justify-between mb-3">
+                <select
                 value={selections[i]}
                 onChange={e => updateSelection(i, e.target.value)}
-                className="w-full rounded-lg border border-border bg-background px-3 py-2 text-sm text-foreground mb-4 focus:outline-none focus:ring-2 focus:ring-accent/30"
+                className="flex-1 rounded-lg border border-border bg-background px-3 py-2 text-sm text-foreground focus:outline-none focus:ring-2 focus:ring-accent/30"
               >
                 {allStyles.map(s => (
                   <option key={s.key} value={s.key}>{s.name}</option>
                 ))}
               </select>
+                <button
+                  onClick={() => handleCopy(previews[i], `compare-${i}`)}
+                  className={`inline-flex items-center gap-2 rounded-lg px-3 py-1.5 text-xs font-semibold transition-all duration-200 ml-2 ${
+                    isCopied ? 'btn-copy-success' : 'btn-navy'
+                  }`}
+                >
+                  {isCopied ? <><Check className="h-3.5 w-3.5" /> Copied</> : <><Copy className="h-3.5 w-3.5" /> Copy</>}
+                </button>
+              </div>
               <div className="min-h-[60px] rounded-xl p-4 text-center text-lg break-all" style={{ background: 'hsl(218 55% 11%)', color: 'hsl(0 0% 92%)' }}>
                 {previews[i]}
               </div>
-              <button
-                onClick={() => handleCopy(previews[i], `compare-${i}`)}
-                className={`mt-3 inline-flex items-center gap-2 rounded-lg px-4 py-2 text-xs font-semibold transition-all duration-200 ${
-                  isCopied ? 'btn-copy-success' : 'btn-navy'
-                }`}
-              >
-                {isCopied ? <><Check className="h-3.5 w-3.5" /> Copied ✓</> : <><Copy className="h-3.5 w-3.5" /> Copy</>}
-              </button>
             </div>
           );
         })}

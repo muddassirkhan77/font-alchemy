@@ -3,7 +3,7 @@ import { RotateCcw, Check, Copy } from 'lucide-react';
 import { calligraphyCategories } from '@/lib/calligraphyFonts';
 import { instagramCategories, type InstaStyle } from '@/lib/instagramFonts';
 
-const MAX_CHARS = 200;
+
 const DEFAULT_PREVIEW = 'FontiFy Preview';
 
 const FontGenerator = () => {
@@ -42,42 +42,30 @@ const FontGenerator = () => {
     return (
       <div
         key={key}
-        className="group rounded-2xl overflow-hidden p-5 transition-all duration-400"
-        style={{
-          background: 'hsl(218 50% 15%)',
-          border: '1.5px solid hsl(218 40% 24%)',
-        }}
-        onMouseEnter={e => {
-          e.currentTarget.style.borderColor = 'hsl(218 40% 32%)';
-          e.currentTarget.style.boxShadow = '0 0 30px 0 hsl(43 56% 52% / 0.12)';
-          e.currentTarget.style.transform = 'translateY(-4px) scale(1.01)';
-        }}
-        onMouseLeave={e => {
-          e.currentTarget.style.borderColor = 'hsl(218 40% 24%)';
-          e.currentTarget.style.boxShadow = 'none';
-          e.currentTarget.style.transform = 'translateY(0) scale(1)';
-        }}
+        className="card-premium rounded-2xl overflow-hidden p-5 transition-all duration-400"
       >
-        <p className="text-xs font-semibold mb-2 uppercase tracking-wider" style={{ color: 'hsl(0 0% 85%)' }}>
-          {name}
-        </p>
-        <div className="rounded-xl px-4 py-4 mb-4" style={{ background: 'hsl(218 55% 11%)' }}>
+        <div className="flex items-center justify-between mb-3">
+          <p className="text-xs font-semibold uppercase tracking-wider" style={{ color: 'hsl(0 0% 85%)' }}>
+            {name}
+          </p>
+          <button
+            onClick={() => handleCopy(transformed, key)}
+            className={`inline-flex items-center gap-2 rounded-lg px-3 py-1.5 text-xs font-semibold transition-all duration-200 ${
+              isCopied ? 'btn-copy-success' : 'btn-navy'
+            }`}
+          >
+            {isCopied ? (
+              <><Check className="h-3.5 w-3.5" /> Copied</>
+            ) : (
+              <><Copy className="h-3.5 w-3.5" /> Copy</>
+            )}
+          </button>
+        </div>
+        <div className="rounded-xl px-4 py-5" style={{ background: 'hsl(218 55% 11%)' }}>
           <p className="text-xl leading-relaxed break-all min-h-[3rem] text-center" style={{ color: 'hsl(0 0% 92%)' }}>
             {transformed}
           </p>
         </div>
-        <button
-          onClick={() => handleCopy(transformed, key)}
-          className={`inline-flex items-center gap-2 rounded-lg px-4 py-2 text-xs font-semibold transition-all duration-200 ${
-            isCopied ? 'btn-copy-success' : 'btn-navy'
-          }`}
-        >
-          {isCopied ? (
-            <><Check className="h-3.5 w-3.5" /> Copied ✓</>
-          ) : (
-            <><Copy className="h-3.5 w-3.5" /> Copy</>
-          )}
-        </button>
       </div>
     );
   };
@@ -110,13 +98,12 @@ const FontGenerator = () => {
           <textarea
             className="input-premium min-h-[120px]"
             placeholder="Type your text here..."
-            maxLength={MAX_CHARS}
             value={text}
-            onChange={e => setText(e.target.value.slice(0, MAX_CHARS))}
+            onChange={e => setText(e.target.value)}
           />
           <div className="mt-2 flex items-center justify-between">
             <span className="text-xs text-muted-foreground">
-              {text.length}/{MAX_CHARS}
+              {text.length} characters
             </span>
             <button
               onClick={() => setText('')}
