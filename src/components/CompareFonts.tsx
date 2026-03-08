@@ -94,7 +94,6 @@ const CompareFonts = () => {
               <div className="min-h-[60px] rounded-xl p-4 text-center text-lg break-all" style={{ background: 'hsl(218 55% 11%)', color: 'hsl(0 0% 92%)' }}>
                 {previews[i]}
               </div>
-              </div>
             </div>
           );
         })}
