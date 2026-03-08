@@ -160,18 +160,18 @@
 
   .input-premium {
     @apply w-full rounded-xl border-2 p-4 text-base transition-all duration-300 resize-none;
-    border-color: hsl(var(--accent) / 0.2);
-    background: hsl(var(--primary));
-    color: hsl(var(--primary-foreground));
+    border-color: hsl(218 40% 24%);
+    background: hsl(218 50% 15%);
+    color: hsl(0 0% 92%);
     font-family: var(--font-body);
   }
   .input-premium::placeholder {
-    color: hsl(var(--muted-foreground));
+    color: hsl(218 20% 50%);
   }
   .input-premium:focus {
     outline: none;
-    border-color: hsl(var(--accent) / 0.6);
-    box-shadow: 0 0 20px 0 hsl(var(--accent) / 0.12), var(--shadow-gold-glow);
+    border-color: hsl(218 40% 32%);
+    box-shadow: 0 0 20px 0 hsl(var(--accent) / 0.1), var(--shadow-gold-glow);
   }
 
   .tab-active {
