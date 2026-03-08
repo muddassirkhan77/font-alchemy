@@ -44,8 +44,8 @@ const FontGenerator = () => {
         key={key}
         className="card-premium rounded-2xl overflow-hidden p-6 transition-all duration-400"
       >
-        <div className="flex items-center justify-between mb-3">
-          <p className="text-xs font-semibold uppercase tracking-wider" style={{ color: 'hsl(0 0% 85%)' }}>
+        <div className="flex items-center justify-between mb-3 rounded-t-xl px-4 py-3" style={{ background: '#1D2E45' }}>
+          <p className="text-sm font-bold uppercase tracking-wider text-white">
             {name}
           </p>
           <button
@@ -61,7 +61,7 @@ const FontGenerator = () => {
             )}
           </button>
         </div>
-        <div className="rounded-xl px-5 py-6" style={{ background: 'hsl(218 55% 11%)' }}>
+        <div className="rounded-xl px-5 py-6" style={{ background: '#101827' }}>
           <p className="text-2xl leading-relaxed break-all min-h-[3.5rem] text-center" style={{ color: 'hsl(0 0% 92%)' }}>
             {transformed}
           </p>
