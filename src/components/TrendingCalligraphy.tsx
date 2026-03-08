@@ -58,6 +58,7 @@ const TrendingCalligraphy = () => {
               >
                 {isCopied ? <><Check className="h-3.5 w-3.5" /> Copied ✓</> : <><Copy className="h-3.5 w-3.5" /> Copy</>}
               </button>
+              </div>
             </div>
           );
         })}

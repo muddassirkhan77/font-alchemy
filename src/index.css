@@ -109,16 +109,16 @@
   }
 
   .card-premium {
-    @apply rounded-xl;
-    background: hsl(var(--primary));
-    border: 1.5px solid hsl(var(--accent) / 0.15);
+    @apply rounded-2xl overflow-hidden;
+    background: hsl(var(--secondary));
+    border: 1.5px solid hsl(var(--accent) / 0.12);
     box-shadow: 0 0 0 0 hsl(var(--accent) / 0), var(--shadow-card);
-    transition: border-color 0.3s ease, box-shadow 0.4s ease, transform 0.3s ease;
+    transition: border-color 0.4s ease, box-shadow 0.5s ease, transform 0.4s cubic-bezier(0.34,1.56,0.64,1);
   }
   .card-premium:hover {
-    border-color: hsl(var(--accent) / 0.5);
-    box-shadow: 0 0 20px 0 hsl(var(--accent) / 0.15), var(--shadow-card-hover);
-    transform: translateY(-2px);
+    border-color: hsl(var(--accent) / 0.6);
+    box-shadow: 0 0 30px 0 hsl(var(--accent) / 0.2), 0 0 60px -10px hsl(var(--accent) / 0.1), var(--shadow-card-hover);
+    transform: translateY(-4px) scale(1.01);
   }
 
   .btn-gold {

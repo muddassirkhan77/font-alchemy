@@ -71,6 +71,7 @@ const FontGenerator = () => {
             {transformed}
           </p>
         </div>
+      </div>
         <div className="px-5 pb-4">
         </p>
         <button
