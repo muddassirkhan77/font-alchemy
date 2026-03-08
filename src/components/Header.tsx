@@ -121,22 +121,16 @@ const Header = () => {
 
         {/* Desktop nav */}
         <nav className="hidden items-center gap-6 md:flex" aria-label="Main navigation">
-          {navLinks.map(link => (
-            <a
-              key={link.label}
-              href={link.href}
-              className="text-sm font-medium text-muted-foreground transition-colors hover:text-foreground"
-              onClick={() => {
-                if (link.tab) {
-                  window.dispatchEvent(new CustomEvent('fontify-tab', { detail: link.tab }));
-                }
-              }}
-            >
-              {link.label}
-            </a>
-          ))}
+          <a href="#hero" className="text-sm font-medium text-muted-foreground transition-colors hover:text-foreground">Home</a>
+          <a
+            href="#tool"
+            className="text-sm font-medium text-muted-foreground transition-colors hover:text-foreground"
+            onClick={() => window.dispatchEvent(new CustomEvent('fontify-tab', { detail: 'calligraphy' }))}
+          >
+            Calligraphy
+          </a>
 
-          {/* Instagram dropdown */}
+          {/* Instagram dropdown - right next to Calligraphy */}
           <div ref={dropdownRef} className="relative">
             <button
               ref={triggerRef}
