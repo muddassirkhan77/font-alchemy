@@ -30,6 +30,11 @@ const Header = () => {
               key={link.label}
               href={link.href}
               className="text-sm font-medium text-muted-foreground transition-colors hover:text-foreground"
+              onClick={() => {
+                if (link.tab) {
+                  window.dispatchEvent(new CustomEvent('fontify-tab', { detail: link.tab }));
+                }
+              }}
             >
               {link.label}
             </a>
