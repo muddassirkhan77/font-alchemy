@@ -54,7 +54,7 @@ const TrendingCalligraphy = () => {
                   {isCopied ? <><Check className="h-3.5 w-3.5" /> Copied</> : <><Copy className="h-3.5 w-3.5" /> Copy</>}
                 </button>
               </div>
-              <div className="rounded-xl px-5 py-6" style={{ background: 'hsl(218 55% 11%)' }}>
+              <div className="rounded-xl px-5 py-6" style={{ background: '#101827' }}>
                 <p className="text-2xl break-all text-center" style={{ color: 'hsl(0 0% 92%)' }}>{transformed}</p>
               </div>
             </div>
