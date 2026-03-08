@@ -82,6 +82,15 @@ const CompareFonts = () => {
                   <option key={s.key} value={s.key}>{s.name}</option>
                 ))}
               </select>
+                <button
+                  onClick={() => handleCopy(previews[i], `compare-${i}`)}
+                  className={`inline-flex items-center gap-2 rounded-lg px-3 py-1.5 text-xs font-semibold transition-all duration-200 ml-2 ${
+                    isCopied ? 'btn-copy-success' : 'btn-navy'
+                  }`}
+                >
+                  {isCopied ? <><Check className="h-3.5 w-3.5" /> Copied</> : <><Copy className="h-3.5 w-3.5" /> Copy</>}
+                </button>
+              </div>
               <div className="min-h-[60px] rounded-xl p-4 text-center text-lg break-all" style={{ background: 'hsl(218 55% 11%)', color: 'hsl(0 0% 92%)' }}>
                 {previews[i]}
               </div>

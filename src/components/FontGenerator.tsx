@@ -103,7 +103,7 @@ const FontGenerator = () => {
           />
           <div className="mt-2 flex items-center justify-between">
             <span className="text-xs text-muted-foreground">
-              {text.length}/{MAX_CHARS}
+              {text.length} characters
             </span>
             <button
               onClick={() => setText('')}

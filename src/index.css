@@ -168,10 +168,14 @@
   .input-premium::placeholder {
     color: hsl(218 20% 50%);
   }
+  .input-premium:hover {
+    border-color: hsl(var(--accent));
+    box-shadow: 0 0 20px 0 hsl(var(--accent) / 0.15);
+  }
   .input-premium:focus {
     outline: none;
-    border-color: hsl(218 40% 32%);
-    box-shadow: 0 0 20px 0 hsl(var(--accent) / 0.1), var(--shadow-gold-glow);
+    border-color: hsl(var(--accent));
+    box-shadow: 0 0 24px 0 hsl(var(--accent) / 0.2), var(--shadow-gold-glow);
   }
 
   .tab-active {

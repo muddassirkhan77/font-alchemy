@@ -40,21 +40,23 @@ const TrendingCalligraphy = () => {
           const transformed = style.transformFn(SAMPLE);
           const isCopied = copiedKey === `trending-${style.key}`;
           return (
-            <div key={style.key} className="card-premium p-5 text-center">
-              <p className="text-xs font-semibold mb-2 uppercase tracking-wider" style={{ color: 'hsl(0 0% 85%)' }}>
-                {style.name}
-              </p>
-              <div className="rounded-xl px-4 py-4 mb-4" style={{ background: 'hsl(218 55% 11%)' }}>
-                <p className="text-xl break-all" style={{ color: 'hsl(0 0% 92%)' }}>{transformed}</p>
+            <div key={style.key} className="card-premium p-5">
+              <div className="flex items-center justify-between mb-3">
+                <p className="text-xs font-semibold uppercase tracking-wider" style={{ color: 'hsl(0 0% 85%)' }}>
+                  {style.name}
+                </p>
+                <button
+                  onClick={() => handleCopy(transformed, `trending-${style.key}`)}
+                  className={`inline-flex items-center gap-2 rounded-lg px-3 py-1.5 text-xs font-semibold transition-all duration-200 ${
+                    isCopied ? 'btn-copy-success' : 'btn-navy'
+                  }`}
+                >
+                  {isCopied ? <><Check className="h-3.5 w-3.5" /> Copied</> : <><Copy className="h-3.5 w-3.5" /> Copy</>}
+                </button>
               </div>
-              <button
-                onClick={() => handleCopy(transformed, `trending-${style.key}`)}
-                className={`inline-flex items-center gap-2 rounded-lg px-4 py-2 text-xs font-semibold transition-all duration-200 ${
-                  isCopied ? 'btn-copy-success' : 'btn-navy'
-                }`}
-              >
-                {isCopied ? <><Check className="h-3.5 w-3.5" /> Copied ✓</> : <><Copy className="h-3.5 w-3.5" /> Copy</>}
-              </button>
+              <div className="rounded-xl px-4 py-5" style={{ background: 'hsl(218 55% 11%)' }}>
+                <p className="text-xl break-all text-center" style={{ color: 'hsl(0 0% 92%)' }}>{transformed}</p>
+              </div>
             </div>
           );
         })}
