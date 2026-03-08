@@ -13,7 +13,7 @@ const HeroSection = () => {
           <span className="gold-gradient-text gold-underline">Calligraphy</span>
           {' '}Font Generator
         </h1>
-        <p className="mx-auto mt-5 max-w-[70ch] text-base text-muted-foreground md:text-lg leading-relaxed">
+        <p className="mx-auto mt-3 max-w-[70ch] text-base text-muted-foreground md:text-lg leading-relaxed">
           Transform your text into stunning Unicode calligraphy and fancy fonts. Copy &amp; paste
           anywhere — Instagram, Facebook, TikTok, YouTube, WhatsApp, and more.
         </p>

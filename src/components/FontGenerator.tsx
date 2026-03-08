@@ -67,10 +67,10 @@ const FontGenerator = () => {
   };
 
   return (
-    <section id="tool" className="section-container pb-16">
-      <div className="card-premium mx-auto max-w-4xl p-6 md:p-10">
+    <section id="tool" className="section-container pt-2 pb-16">
+      <div className="card-premium mx-auto max-w-4xl p-4 md:p-8">
         {/* Tabs */}
-        <div className="flex gap-3 mb-4">
+        <div className="flex gap-3 mb-3">
           <button
             onClick={() => setTab('calligraphy')}
             className={`rounded-lg px-5 py-2.5 text-sm font-semibold transition-all duration-200 ${
