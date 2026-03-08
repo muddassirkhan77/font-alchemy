@@ -72,7 +72,8 @@ const CompareFonts = () => {
           const isCopied = copiedKey === `compare-${i}`;
           return (
             <div key={i} className="card-premium p-5">
-              <select
+              <div className="flex items-center justify-between mb-3">
+                <select
                 value={selections[i]}
                 onChange={e => updateSelection(i, e.target.value)}
                 className="w-full rounded-lg border border-border bg-background px-3 py-2 text-sm text-foreground mb-4 focus:outline-none focus:ring-2 focus:ring-accent/30"
