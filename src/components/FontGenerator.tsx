@@ -61,8 +61,8 @@ const FontGenerator = () => {
             )}
           </button>
         </div>
-        <div className="rounded-xl px-5 py-6" style={{ background: '#1A1A2E' }}>
-          <p className="text-2xl leading-relaxed break-all min-h-[3.5rem] text-center" style={{ color: 'hsl(0 0% 92%)' }}>
+        <div className="rounded-xl h-28 flex items-center justify-center overflow-hidden px-5" style={{ background: '#1A1A2E' }}>
+          <p className="text-2xl leading-relaxed break-all text-center line-clamp-2 w-full" style={{ color: 'hsl(0 0% 92%)' }}>
             {transformed}
           </p>
         </div>

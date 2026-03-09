@@ -91,8 +91,8 @@ const CompareFonts = () => {
                   {isCopied ? <><Check className="h-3.5 w-3.5" /> Copied</> : <><Copy className="h-3.5 w-3.5" /> Copy</>}
                 </button>
               </div>
-              <div className="min-h-[60px] rounded-xl p-4 text-center text-lg break-all" style={{ background: '#1A1A2E', color: 'hsl(0 0% 92%)' }}>
-                {previews[i]}
+              <div className="rounded-xl h-28 flex items-center justify-center overflow-hidden px-4" style={{ background: '#1A1A2E', color: 'hsl(0 0% 92%)' }}>
+                <p className="text-lg break-all text-center line-clamp-2 w-full">{previews[i]}</p>
               </div>
             </div>
           );
