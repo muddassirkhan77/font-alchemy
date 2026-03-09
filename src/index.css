@@ -186,7 +186,7 @@
 
   .section-container {
     @apply mx-auto w-full;
-    max-width: 1200px;
+    max-width: 1400px;
     padding-left: 2rem;
     padding-right: 2rem;
   }
