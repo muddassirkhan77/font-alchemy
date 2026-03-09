@@ -28,7 +28,7 @@ const CalligraphyTips = () => {
         Expert advice on making the most of fancy fonts
       </p>
 
-      <div className="mx-auto max-w-4xl grid grid-cols-1 gap-4 md:grid-cols-3">
+      <div className="mx-auto max-w-4xl grid grid-cols-1 gap-8 md:grid-cols-3">
         {tips.map(tip => (
           <div key={tip.title} className="card-premium p-6">
             <h3 className="font-heading text-base font-bold mb-2 text-foreground">{tip.title}</h3>

@@ -122,7 +122,7 @@ const FontGenerator = () => {
                 <h3 className="text-sm font-bold uppercase tracking-widest text-accent mb-4 border-b border-accent/20 pb-2">
                   {cat.label}
                 </h3>
-                <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
+                <div className="grid grid-cols-1 gap-8 md:grid-cols-2">
                   {cat.styles.map((style) => {
                     const transformed = style.transformFn(displayText);
                     return renderStyleCard(style.key, style.name, transformed);
@@ -141,7 +141,7 @@ const FontGenerator = () => {
                 <h3 className="text-sm font-bold uppercase tracking-widest text-accent mb-4 border-b border-accent/20 pb-2">
                   {cat.name}
                 </h3>
-                <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
+                <div className="grid grid-cols-1 gap-8 md:grid-cols-2">
                   {cat.styles.map((style: InstaStyle) => {
                     const transformed = style.transformFn(displayText);
                     return renderStyleCard(style.key, style.name, transformed);
