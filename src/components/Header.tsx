@@ -4,14 +4,14 @@ import { instagramCategories } from '@/lib/instagramFonts';
 import logo from '@/assets/logo.png';
 
 const navLinks = [
-  { label: 'Home', href: '#hero' },
-  { label: 'Calligraphy', href: '#tool', tab: 'calligraphy' as const },
-  { label: 'Tips', href: '#tips' },
-  { label: 'Premium', href: '#premium' },
-  { label: 'Contact', href: '#footer' },
-];
+{ label: 'Home', href: '#hero' },
+{ label: 'Calligraphy', href: '#tool', tab: 'calligraphy' as const },
+{ label: 'Tips', href: '#tips' },
+{ label: 'Premium', href: '#premium' },
+{ label: 'Contact', href: '#footer' }];
 
-const categoryNames = instagramCategories.map(c => c.name);
+
+const categoryNames = instagramCategories.map((c) => c.name);
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -22,7 +22,7 @@ const Header = () => {
   const triggerRef = useRef<HTMLButtonElement>(null);
   const listRef = useRef<HTMLDivElement>(null);
 
-  const toggle = useCallback(() => setIsOpen(p => !p), []);
+  const toggle = useCallback(() => setIsOpen((p) => !p), []);
 
   // Close desktop dropdown on outside click
   useEffect(() => {
@@ -77,11 +77,11 @@ const Header = () => {
     switch (e.key) {
       case 'ArrowDown':
         e.preventDefault();
-        setFocusIdx(p => Math.min(p + 1, categoryNames.length - 1));
+        setFocusIdx((p) => Math.min(p + 1, categoryNames.length - 1));
         break;
       case 'ArrowUp':
         e.preventDefault();
-        setFocusIdx(p => Math.max(p - 1, 0));
+        setFocusIdx((p) => Math.max(p - 1, 0));
         break;
       case 'Enter':
       case ' ':
@@ -117,7 +117,7 @@ const Header = () => {
         {/* Brand */}
         <a href="#hero" className="flex items-center gap-0.5">
           <img src={logo} alt="FontiFy Logo" className="h-14 w-auto" style={{ filter: 'contrast(1.3)' }} />
-          <span className="font-heading text-2xl font-extrabold gold-gradient-text tracking-tight -ml-1">FontiFy</span>
+          <span className="font-heading text-2xl font-extrabold gold-gradient-text tracking-tight -ml-1 mx-[2px]">FontiFy</span>
         </a>
 
         {/* Desktop nav */}
@@ -126,8 +126,8 @@ const Header = () => {
           <a
             href="#tool"
             className="text-sm font-medium text-muted-foreground transition-colors hover:text-foreground"
-            onClick={() => window.dispatchEvent(new CustomEvent('fontify-tab', { detail: 'calligraphy' }))}
-          >
+            onClick={() => window.dispatchEvent(new CustomEvent('fontify-tab', { detail: 'calligraphy' }))}>
+            
             Calligraphy
           </a>
 
@@ -140,71 +140,71 @@ const Header = () => {
               onClick={navigateToInstagram}
               onKeyDown={handleKeyDown}
               aria-haspopup="true"
-              aria-expanded={instaOpen}
-            >
+              aria-expanded={instaOpen}>
+              
               Instagram
               <ChevronDown className={`h-3.5 w-3.5 transition-transform duration-200 ${instaOpen ? 'rotate-180' : ''}`} />
             </button>
 
-            {instaOpen && (
-              <div
-                className="absolute left-1/2 -translate-x-1/2 top-full mt-2 w-64 rounded-xl border border-border bg-card shadow-lg overflow-hidden animate-in fade-in-0 zoom-in-95 duration-150"
-                role="menu"
-                aria-label="Instagram font categories"
-                onMouseLeave={() => { setInstaOpen(false); setFocusIdx(-1); }}
-                onKeyDown={handleKeyDown}
-              >
+            {instaOpen &&
+            <div
+              className="absolute left-1/2 -translate-x-1/2 top-full mt-2 w-64 rounded-xl border border-border bg-card shadow-lg overflow-hidden animate-in fade-in-0 zoom-in-95 duration-150"
+              role="menu"
+              aria-label="Instagram font categories"
+              onMouseLeave={() => {setInstaOpen(false);setFocusIdx(-1);}}
+              onKeyDown={handleKeyDown}>
+              
                 {/* Scroll up arrow */}
                 <button
-                  className="flex w-full items-center justify-center py-1.5 text-muted-foreground hover:text-foreground hover:bg-secondary/60 transition-colors"
-                  onClick={() => scrollList('up')}
-                  aria-label="Scroll up"
-                  tabIndex={-1}
-                >
+                className="flex w-full items-center justify-center py-1.5 text-muted-foreground hover:text-foreground hover:bg-secondary/60 transition-colors"
+                onClick={() => scrollList('up')}
+                aria-label="Scroll up"
+                tabIndex={-1}>
+                
                   <ChevronUp className="h-4 w-4" />
                 </button>
 
                 <div ref={listRef} className="max-h-72 overflow-y-auto scrollbar-thin px-1 py-1">
                   {/* "All Instagram Fonts" link */}
                   <button
-                    role="menuitem"
-                    className={`w-full text-left rounded-lg px-3 py-2 text-sm font-semibold transition-colors ${
-                      focusIdx === -1 ? '' : ''
-                    } text-accent hover:bg-accent/10`}
-                    onClick={navigateToInstagram}
-                  >
+                  role="menuitem"
+                  className={`w-full text-left rounded-lg px-3 py-2 text-sm font-semibold transition-colors ${
+                  focusIdx === -1 ? '' : ''} text-accent hover:bg-accent/10`
+                  }
+                  onClick={navigateToInstagram}>
+                  
                     📸 All Instagram Fonts
                   </button>
                   <div className="mx-2 my-1 h-px bg-border" />
-                  {categoryNames.map((name, i) => (
-                    <button
-                      key={name}
-                      role="menuitem"
-                      tabIndex={-1}
-                      className={`w-full text-left rounded-lg px-3 py-2 text-sm transition-colors ${
-                        focusIdx === i
-                          ? 'bg-accent/15 text-foreground'
-                          : 'text-muted-foreground hover:bg-secondary/60 hover:text-foreground'
-                      }`}
-                      onClick={() => navigateToCategory(name)}
-                      onMouseEnter={() => setFocusIdx(i)}
-                    >
+                  {categoryNames.map((name, i) =>
+                <button
+                  key={name}
+                  role="menuitem"
+                  tabIndex={-1}
+                  className={`w-full text-left rounded-lg px-3 py-2 text-sm transition-colors ${
+                  focusIdx === i ?
+                  'bg-accent/15 text-foreground' :
+                  'text-muted-foreground hover:bg-secondary/60 hover:text-foreground'}`
+                  }
+                  onClick={() => navigateToCategory(name)}
+                  onMouseEnter={() => setFocusIdx(i)}>
+                  
                       {name}
                     </button>
-                  ))}
+                )}
                 </div>
 
                 {/* Scroll down arrow */}
                 <button
-                  className="flex w-full items-center justify-center py-1.5 text-muted-foreground hover:text-foreground hover:bg-secondary/60 transition-colors"
-                  onClick={() => scrollList('down')}
-                  aria-label="Scroll down"
-                  tabIndex={-1}
-                >
+                className="flex w-full items-center justify-center py-1.5 text-muted-foreground hover:text-foreground hover:bg-secondary/60 transition-colors"
+                onClick={() => scrollList('down')}
+                aria-label="Scroll down"
+                tabIndex={-1}>
+                
                   <ChevronDown className="h-4 w-4" />
                 </button>
               </div>
-            )}
+            }
           </div>
           <a href="#tips" className="text-sm font-medium text-muted-foreground transition-colors hover:text-foreground">Tips</a>
           <a href="#premium" className="text-sm font-medium text-muted-foreground transition-colors hover:text-foreground">Premium</a>
@@ -220,8 +220,8 @@ const Header = () => {
           onClick={toggle}
           aria-expanded={isOpen}
           aria-controls="mobile-nav"
-          aria-label="Toggle menu"
-        >
+          aria-label="Toggle menu">
+          
           {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
         </button>
       </div>
@@ -230,33 +230,33 @@ const Header = () => {
       <div
         id="mobile-nav"
         className={`md:hidden overflow-hidden transition-all duration-300 ${
-          isOpen ? 'max-h-[80vh] border-t border-border' : 'max-h-0'
-        }`}
-      >
+        isOpen ? 'max-h-[80vh] border-t border-border' : 'max-h-0'}`
+        }>
+        
         <nav className="section-container flex flex-col gap-3 py-4" aria-label="Mobile navigation">
-          {navLinks.map(link => (
-            <a
-              key={link.label}
-              href={link.href}
-              className="text-sm font-medium text-muted-foreground transition-colors hover:text-foreground py-1"
-              onClick={() => {
-                setIsOpen(false);
-                if (link.tab) {
-                  window.dispatchEvent(new CustomEvent('fontify-tab', { detail: link.tab }));
-                }
-              }}
-            >
+          {navLinks.map((link) =>
+          <a
+            key={link.label}
+            href={link.href}
+            className="text-sm font-medium text-muted-foreground transition-colors hover:text-foreground py-1"
+            onClick={() => {
+              setIsOpen(false);
+              if (link.tab) {
+                window.dispatchEvent(new CustomEvent('fontify-tab', { detail: link.tab }));
+              }
+            }}>
+            
               {link.label}
             </a>
-          ))}
+          )}
 
           {/* Mobile Instagram with expandable categories */}
           <div>
             <button
               className="flex w-full items-center justify-between text-sm font-medium text-muted-foreground transition-colors hover:text-foreground py-1"
-              onClick={() => setMobileInstaOpen(p => !p)}
-              aria-expanded={mobileInstaOpen}
-            >
+              onClick={() => setMobileInstaOpen((p) => !p)}
+              aria-expanded={mobileInstaOpen}>
+              
               <span>📸 Instagram Fonts</span>
               <ChevronDown className={`h-4 w-4 transition-transform duration-200 ${mobileInstaOpen ? 'rotate-180' : ''}`} />
             </button>
@@ -265,19 +265,19 @@ const Header = () => {
               <div className="mt-1 ml-3 border-l-2 border-accent/20 overflow-y-auto max-h-[50vh] scrollbar-thin">
                 <button
                   className="block w-full text-left pl-3 py-1.5 text-sm font-semibold text-accent"
-                  onClick={navigateToInstagram}
-                >
+                  onClick={navigateToInstagram}>
+                  
                   All Instagram Fonts →
                 </button>
-                {categoryNames.map(name => (
-                  <button
-                    key={name}
-                    className="block w-full text-left pl-3 py-1.5 text-sm text-muted-foreground hover:text-foreground transition-colors"
-                    onClick={() => navigateToCategory(name)}
-                  >
+                {categoryNames.map((name) =>
+                <button
+                  key={name}
+                  className="block w-full text-left pl-3 py-1.5 text-sm text-muted-foreground hover:text-foreground transition-colors"
+                  onClick={() => navigateToCategory(name)}>
+                  
                     {name}
                   </button>
-                ))}
+                )}
               </div>
 
               {/* Mobile scroll arrows */}
@@ -294,8 +294,8 @@ const Header = () => {
           </a>
         </nav>
       </div>
-    </header>
-  );
+    </header>);
+
 };
 
 export default Header;
