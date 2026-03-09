@@ -117,7 +117,7 @@ const Header = () => {
         {/* Brand */}
         <a href="#hero" className="flex items-center gap-0.5">
           <img src={logo} alt="FontiFy Logo" className="h-14 w-auto" style={{ filter: 'contrast(1.3)' }} />
-          <span className="font-heading text-2xl font-extrabold gold-gradient-text tracking-tight -ml-1 mx-[2px]">FontiFy</span>
+          <span className="font-extrabold gold-gradient-text tracking-tight -ml-1 mx-0 text-3xl font-serif text-left">FontiFy</span>
         </a>
 
         {/* Desktop nav */}
