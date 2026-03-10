@@ -72,7 +72,7 @@ const FontGenerator = () => {
 
   return (
     <section id="tool" className="section-container pt-2 pb-16">
-      <div className="card-premium max-w-4xl p-4 md:p-8 py-[15px] px-[15px] rounded-md mx-0 border-2">
+      <div className="card-premium max-w-6xl p-4 md:p-8 py-[15px] px-[15px] rounded-md mx-0 border-2">
         {/* Tabs */}
         <div className="flex gap-3 mb-3">
           <button
