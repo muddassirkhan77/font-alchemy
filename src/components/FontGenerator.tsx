@@ -103,12 +103,12 @@ const FontGenerator = () => {
             maxLength={500} />
           
           <div className="mt-2 flex items-center justify-between">
-            <span className="text-xs text-muted-foreground">
-              {text.length} characters
-            </span>
+            
+
+            
             <button
               onClick={() => setText('')}
-              className="btn-navy gap-2 text-xs px-4 py-2">
+              className="btn-navy gap-2 text-xs px-4 py-2 text-left mx-[630px]">
               
               <RotateCcw className="h-3.5 w-3.5" /> Reset
             </button>
