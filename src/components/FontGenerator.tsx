@@ -99,7 +99,8 @@ const FontGenerator = () => {
             className="input-premium min-h-[120px]"
             placeholder="Type your text here..."
             value={text}
-            onChange={e => setText(e.target.value)}
+            onChange={e => setText(e.target.value.slice(0, 500))}
+            maxLength={500}
           />
           <div className="mt-2 flex items-center justify-between">
             <span className="text-xs text-muted-foreground">
