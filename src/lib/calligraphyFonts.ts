@@ -137,6 +137,44 @@ const allStyles: CalliStyle[] = [
     transformFn: deco('꧁ ', ' ꧂', fraktur) },
   { key: 'ink_vintage', name: 'Vintage Press', category: 'classic-ink',
     transformFn: (t) => comb(boldFraktur(t), '\u0307') },
+  { key: 'ink_runic', name: 'Runic Frame', category: 'classic-ink',
+    transformFn: deco('᛭ ', ' ᛭', boldFraktur) },
+  { key: 'ink_cathedral', name: 'Cathedral', category: 'classic-ink',
+    transformFn: deco('⛪ ', ' ⛪', fraktur) },
+  { key: 'ink_scroll', name: 'Ancient Scroll', category: 'classic-ink',
+    transformFn: deco('📜 ', ' 📜', fraktur) },
+  { key: 'ink_cross', name: 'Cross Ink', category: 'classic-ink',
+    transformFn: deco('✝ ', ' ✝', boldFraktur) },
+
+  // ════════ EXTRA SIGNATURE ════════
+  { key: 'sig_wings', name: 'Winged Script', category: 'signature',
+    transformFn: deco('𓆩 ', ' 𓆪', script) },
+  { key: 'sig_sparkle', name: 'Sparkle Sign', category: 'signature',
+    transformFn: deco('✨ ', ' ✨', boldScript) },
+  { key: 'sig_star', name: 'Starlit Script', category: 'signature',
+    transformFn: deco('★ ', ' ★', mathItalic) },
+  { key: 'sig_leaf', name: 'Leaf Signature', category: 'signature',
+    transformFn: deco('🍃 ', ' 🍃', script) },
+
+  // ════════ EXTRA WEDDING ════════
+  { key: 'wed_butterfly', name: 'Butterfly Script', category: 'wedding',
+    transformFn: deco('🦋 ', ' 🦋', boldScript) },
+  { key: 'wed_dove', name: 'Dove Love', category: 'wedding',
+    transformFn: deco('🕊 ', ' 🕊', script) },
+  { key: 'wed_ring', name: 'Ring Script', category: 'wedding',
+    transformFn: deco('💍 ', ' 💍', boldScript) },
+  { key: 'wed_rose', name: 'Rose Cursive', category: 'wedding',
+    transformFn: deco('🌹 ', ' 🌹', script) },
+
+  // ════════ EXTRA LUXURY ════════
+  { key: 'lux_fire', name: 'Fire Luxe', category: 'luxury',
+    transformFn: deco('🔥 ', ' 🔥', boldItalic) },
+  { key: 'lux_gem', name: 'Gemstone', category: 'luxury',
+    transformFn: deco('💎 ', ' 💎', boldScript) },
+  { key: 'lux_star_gate', name: 'Star Gate', category: 'luxury',
+    transformFn: deco('✯ ', ' ✯', mathBold) },
+  { key: 'lux_chain', name: 'Chain Link', category: 'luxury',
+    transformFn: deco('⛓ ', ' ⛓', doubleStruck) },
 ];
 
 // ─── Grouped Export ───
