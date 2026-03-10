@@ -108,7 +108,7 @@ const FontGenerator = () => {
             
             <button
               onClick={() => setText('')}
-              className="btn-navy gap-2 text-xs px-4 py-2 text-left mx-[630px]">
+              className="btn-navy gap-2 text-xs px-4 py-2 text-left mx-[600px]">
               
               <RotateCcw className="h-3.5 w-3.5" /> Reset
             </button>
