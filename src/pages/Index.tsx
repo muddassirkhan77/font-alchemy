@@ -14,10 +14,10 @@ const Index = () => {
       <Header />
       <main>
         <HeroSection />
-        <FontGenerator />
+        <WebFontPreview />
         <CompareFonts />
         <TrendingCalligraphy />
-        <WebFontPreview />
+        <FontGenerator />
         <PremiumFeatures />
         <CalligraphyTips />
       </main>
