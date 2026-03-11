@@ -28,6 +28,19 @@ export const webFonts: WebFont[] = [
   { id: 'style-script', name: 'Style Script', family: "'Style Script', cursive", language: 'en' },
   { id: 'whisper', name: 'Whisper', family: "'Whisper', cursive", language: 'en' },
   { id: 'cookie', name: 'Cookie', family: "'Cookie', cursive", language: 'en' },
+  // New Calligraphy Fonts
+  { id: 'petit-formal-script', name: 'Petit Formal Script', family: "'Petit Formal Script', cursive", language: 'en' },
+  { id: 'marck-script', name: 'Marck Script', family: "'Marck Script', cursive", language: 'en', trending: true },
+  { id: 'niconne', name: 'Niconne', family: "'Niconne', cursive", language: 'en' },
+  { id: 'monsieur-la-doulaise', name: 'Monsieur La Doulaise', family: "'Monsieur La Doulaise', cursive", language: 'en' },
+  { id: 'mrs-saint-delafield', name: 'Mrs Saint Delafield', family: "'Mrs Saint Delafield', cursive", language: 'en' },
+  { id: 'herr-von-muellerhoff', name: 'Herr Von Muellerhoff', family: "'Herr Von Muellerhoff', cursive", language: 'en' },
+  { id: 'mr-dafoe', name: 'Mr Dafoe', family: "'Mr Dafoe', cursive", language: 'en' },
+  { id: 'ruthie', name: 'Ruthie', family: "'Ruthie', cursive", language: 'en' },
+  { id: 'norican', name: 'Norican', family: "'Norican', cursive", language: 'en' },
+  { id: 'bilbo-swash-caps', name: 'Bilbo Swash Caps', family: "'Bilbo Swash Caps', cursive", language: 'en' },
+  { id: 'lovers-quarrel', name: 'Lovers Quarrel', family: "'Lovers Quarrel', cursive", language: 'en' },
+  { id: 'carattere', name: 'Carattere', family: "'Carattere', cursive", language: 'en' },
   // Arabic Calligraphy
   { id: 'amiri', name: 'Amiri', family: "'Amiri', serif", language: 'ar', trending: true },
   { id: 'scheherazade', name: 'Scheherazade New', family: "'Scheherazade New', serif", language: 'ar', trending: true },
@@ -50,6 +63,9 @@ export const googleFontsUrl =
     'Alex+Brush', 'Allura', 'Lobster', 'Tangerine',
     'Pinyon+Script', 'Rouge+Script', 'Satisfy', 'Berkshire+Swash',
     'Calligraffitti', 'Qwitcher+Grypen', 'Style+Script', 'Whisper', 'Cookie',
+    'Petit+Formal+Script', 'Marck+Script', 'Niconne', 'Monsieur+La+Doulaise',
+    'Mrs+Saint+Delafield', 'Herr+Von+Muellerhoff', 'Mr+Dafoe', 'Ruthie',
+    'Norican', 'Bilbo+Swash+Caps', 'Lovers+Quarrel', 'Carattere',
     'Amiri', 'Scheherazade+New', 'Lateef', 'Aref+Ruqaa', 'Reem+Kufi', 'El+Messiri',
   ].join('&family=') +
   '&display=swap';
