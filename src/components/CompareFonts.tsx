@@ -56,7 +56,7 @@ const CompareFonts = () => {
         Select different styles to compare them instantly
       </p>
 
-      <div className="mx-auto max-w-4xl mb-6">
+      <div className="mx-auto max-w-6xl mb-6">
         <input
           type="text"
           value={text}
@@ -67,7 +67,7 @@ const CompareFonts = () => {
         />
       </div>
 
-      <div className="mx-auto max-w-4xl grid grid-cols-1 gap-8 md:grid-cols-3">
+      <div className="mx-auto max-w-6xl grid grid-cols-1 gap-6 md:grid-cols-2">
         {[0, 1, 2].map(i => {
           const isCopied = copiedKey === `compare-${i}`;
           return (
