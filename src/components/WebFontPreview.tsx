@@ -139,7 +139,7 @@ const WebFontPreview = () => {
         </span>
       </div>
 
-      <div className="card-premium max-w-6xl p-4 md:p-6 rounded-md mx-0 border-2">
+      <div className="card-premium max-w-6xl p-4 md:p-6 rounded-md mx-auto border-2">
         {/* Filter Tabs - scrollable */}
         <div className="flex gap-2 mb-3 overflow-x-auto pb-1 scrollbar-hide">
           {filterTabs.map(({ key, label }) => (
