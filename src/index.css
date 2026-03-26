@@ -159,6 +159,7 @@
 
   .input-premium {
     @apply w-full rounded-xl border-2 p-4 text-base transition-all duration-300 resize-none;
+    animation: fade-in 0.4s ease-out;
     border-color: hsl(218 40% 24%);
     background: #1A1A2E;
     color: hsl(0 0% 92%);
