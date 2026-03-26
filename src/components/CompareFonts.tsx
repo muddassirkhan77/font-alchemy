@@ -76,23 +76,23 @@ const CompareFonts = () => {
                 <select
                 value={selections[i]}
                 onChange={e => updateSelection(i, e.target.value)}
-                className="flex-1 rounded-lg border border-border bg-background px-3 py-2 text-sm text-foreground focus:outline-none focus:ring-2 focus:ring-accent/30"
-              >
-                {allStyles.map(s => (
-                  <option key={s.key} value={s.key}>{s.name}</option>
-                ))}
-              </select>
-                <button
-                  onClick={() => handleCopy(previews[i], `compare-${i}`)}
-                  className={`inline-flex items-center gap-2 rounded-lg px-3 py-1.5 text-xs font-semibold transition-all duration-200 ml-2 ${
-                    isCopied ? 'btn-copy-success' : 'btn-navy'
-                  }`}
-                >
-                  {isCopied ? <><Check className="h-3.5 w-3.5" /> Copied</> : <><Copy className="h-3.5 w-3.5" /> Copy</>}
-                </button>
-              </div>
-              <div className="rounded-xl h-28 flex items-center justify-center overflow-hidden px-4" style={{ background: '#1A1A2E', color: 'hsl(0 0% 92%)' }}>
-                <p className="text-lg break-all text-center line-clamp-2 w-full">{previews[i]}</p>
+                 className="flex-1 rounded-lg border border-border/30 bg-transparent px-3 py-2 text-sm text-white focus:outline-none focus:ring-2 focus:ring-accent/30"
+               >
+                 {allStyles.map(s => (
+                   <option key={s.key} value={s.key}>{s.name}</option>
+                 ))}
+               </select>
+                 <button
+                   onClick={() => handleCopy(previews[i], `compare-${i}`)}
+                   className={`inline-flex items-center gap-2 rounded-lg px-3 py-1.5 text-xs font-semibold transition-all duration-200 ml-2 ${
+                     isCopied ? 'btn-copy-success' : 'btn-navy'
+                   }`}
+                 >
+                   {isCopied ? <><Check className="h-3.5 w-3.5" /> Copied</> : <><Copy className="h-3.5 w-3.5" /> Copy</>}
+                 </button>
+               </div>
+               <div className="rounded-b-xl h-28 flex items-center justify-center overflow-hidden px-5" style={{ background: '#1A1A2E', color: 'hsl(0 0% 92%)' }}>
+                 <p className="text-2xl leading-relaxed break-all text-center line-clamp-2 w-full">{previews[i]}</p>
               </div>
             </div>
           );
