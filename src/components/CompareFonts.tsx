@@ -67,7 +67,7 @@ const CompareFonts = () => {
         />
       </div>
 
-      <div className="mx-auto max-w-6xl grid grid-cols-1 gap-6 md:grid-cols-2">
+      <div className="mx-auto max-w-6xl grid grid-cols-1 gap-6 md:grid-cols-2 [&>*:last-child]:md:col-span-2 [&>*:last-child]:md:max-w-[calc(50%-0.75rem)] [&>*:last-child]:md:mx-auto">
         {[0, 1, 2].map(i => {
           const isCopied = copiedKey === `compare-${i}`;
           return (
