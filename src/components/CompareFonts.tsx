@@ -71,8 +71,8 @@ const CompareFonts = () => {
         {[0, 1, 2].map(i => {
           const isCopied = copiedKey === `compare-${i}`;
           return (
-            <div key={i} className="card-premium p-6">
-              <div className="flex items-center justify-between mb-3">
+            <div key={i} className="card-premium">
+              <div className="flex items-center justify-between px-4 py-3" style={{ background: '#1D2F46' }}>
                 <select
                 value={selections[i]}
                 onChange={e => updateSelection(i, e.target.value)}
