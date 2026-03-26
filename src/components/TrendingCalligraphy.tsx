@@ -35,7 +35,7 @@ const TrendingCalligraphy = () => {
         Most popular calligraphy styles this week
       </p>
 
-      <div className="mx-auto max-w-4xl grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
+      <div className="mx-auto max-w-6xl grid grid-cols-1 gap-6 md:grid-cols-2">
         {styles.map(style => {
           const transformed = style.transformFn(SAMPLE);
           const isCopied = copiedKey === `trending-${style.key}`;
