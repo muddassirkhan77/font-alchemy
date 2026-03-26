@@ -40,8 +40,8 @@ const TrendingCalligraphy = () => {
           const transformed = style.transformFn(SAMPLE);
           const isCopied = copiedKey === `trending-${style.key}`;
           return (
-            <div key={style.key} className="card-premium p-6">
-              <div className="flex items-center justify-between mb-3 rounded-t-xl px-4 py-3" style={{ background: '#1D2F46' }}>
+            <div key={style.key} className="card-premium">
+              <div className="flex items-center justify-between px-4 py-3" style={{ background: '#1D2F46' }}>
                 <p className="text-sm font-bold uppercase tracking-wider text-white">
                   {style.name}
                 </p>
@@ -54,8 +54,8 @@ const TrendingCalligraphy = () => {
                   {isCopied ? <><Check className="h-3.5 w-3.5" /> Copied</> : <><Copy className="h-3.5 w-3.5" /> Copy</>}
                 </button>
               </div>
-              <div className="rounded-xl h-28 flex items-center justify-center overflow-hidden px-5" style={{ background: '#1A1A2E' }}>
-                <p className="text-2xl break-all text-center line-clamp-2 w-full" style={{ color: 'hsl(0 0% 92%)' }}>{transformed}</p>
+              <div className="rounded-b-xl h-28 flex items-center justify-center overflow-hidden px-5" style={{ background: '#1A1A2E' }}>
+                <p className="text-2xl leading-relaxed break-all text-center line-clamp-2 w-full" style={{ color: 'hsl(0 0% 92%)' }}>{transformed}</p>
               </div>
             </div>
           );
