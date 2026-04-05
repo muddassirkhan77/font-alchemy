@@ -16,12 +16,12 @@ const Index = () => {
       <main>
         <HeroSection />
         <WebFontPreview />
-        <SignatureGenerator />
         <CompareFonts />
         <TrendingCalligraphy />
         <FontGenerator />
         <PremiumFeatures />
         <CalligraphyTips />
+        <SignatureGenerator />
       </main>
       <SiteFooter />
     </div>
