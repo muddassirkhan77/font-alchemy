@@ -1,24 +1,12 @@
-import { useState, useCallback, useEffect } from 'react';
+import { useState, useCallback } from 'react';
 import { RotateCcw, Check, Copy } from 'lucide-react';
 import { calligraphyCategories } from '@/lib/calligraphyFonts';
-import { instagramCategories, type InstaStyle } from '@/lib/instagramFonts';
-
 
 const DEFAULT_PREVIEW = 'FontiFy Preview';
 
 const FontGenerator = () => {
   const [text, setText] = useState('');
-  const [tab, setTab] = useState<'calligraphy' | 'instagram'>('calligraphy');
   const [copiedKey, setCopiedKey] = useState<string | null>(null);
-
-  useEffect(() => {
-    const handler = (e: Event) => {
-      const detail = (e as CustomEvent).detail;
-      if (detail === 'calligraphy' || detail === 'instagram') setTab(detail);
-    };
-    window.addEventListener('fontify-tab', handler);
-    return () => window.removeEventListener('fontify-tab', handler);
-  }, []);
 
   const displayText = text.length > 0 ? text : DEFAULT_PREVIEW;
 
@@ -53,10 +41,8 @@ const FontGenerator = () => {
             className={`inline-flex items-center gap-2 rounded-lg px-3 py-1.5 text-xs font-semibold transition-all duration-200 ${
             isCopied ? 'btn-copy-success' : 'btn-navy'}`
             }>
-            
             {isCopied ?
             <><Check className="h-3.5 w-3.5" /> Copied</> :
-
             <><Copy className="h-3.5 w-3.5" /> Copy</>
             }
           </button>
@@ -67,32 +53,11 @@ const FontGenerator = () => {
           </p>
         </div>
       </div>);
-
   };
 
   return (
     <section id="tool" className="section-container pt-2 pb-16">
       <div className="card-premium max-w-6xl p-4 md:p-8 py-[15px] px-[15px] rounded-md mx-0 border-2">
-        {/* Tabs */}
-        <div className="flex gap-3 mb-3">
-          <button
-            onClick={() => setTab('calligraphy')}
-            className={`rounded-lg px-5 py-2.5 text-sm font-semibold transition-all duration-200 ${
-            tab === 'calligraphy' ? 'tab-active' : 'tab-inactive'}`
-            }>
-            
-            ✒️ Calligraphy
-          </button>
-          <button
-            onClick={() => setTab('instagram')}
-            className={`rounded-lg px-5 py-2.5 text-sm font-semibold transition-all duration-200 ${
-            tab === 'instagram' ? 'tab-active' : 'tab-inactive'}`
-            }>
-            
-            📸 Instagram
-          </button>
-        </div>
-
         {/* Input area */}
         <div className="relative">
           <textarea
@@ -103,58 +68,32 @@ const FontGenerator = () => {
             maxLength={500} />
           
           <div className="mt-2 flex items-center justify-between">
-            
-
-            
             <button
               onClick={() => setText('')}
               className="btn-navy gap-2 text-xs px-4 py-2 text-left mx-[600px]">
-              
               <RotateCcw className="h-3.5 w-3.5" /> Reset
             </button>
           </div>
         </div>
 
-        {/* Calligraphy Results - always visible with default or user text */}
-        {tab === 'calligraphy' &&
+        {/* Calligraphy Results */}
         <div className="mt-8 space-y-8">
-            {calligraphyCategories.map((cat) =>
-          <div key={cat.id}>
-                <h3 className="text-sm font-bold uppercase tracking-widest text-accent mb-4 border-b border-accent/20 pb-2">
-                  {cat.label}
-                </h3>
-                <div className="grid grid-cols-1 gap-8 md:grid-cols-2">
-                  {cat.styles.map((style) => {
-                const transformed = style.transformFn(displayText);
-                return renderStyleCard(style.key, style.name, transformed);
-              })}
-                </div>
+          {calligraphyCategories.map((cat) =>
+            <div key={cat.id}>
+              <h3 className="text-sm font-bold uppercase tracking-widest text-accent mb-4 border-b border-accent/20 pb-2">
+                {cat.label}
+              </h3>
+              <div className="grid grid-cols-1 gap-8 md:grid-cols-2">
+                {cat.styles.map((style) => {
+                  const transformed = style.transformFn(displayText);
+                  return renderStyleCard(style.key, style.name, transformed);
+                })}
               </div>
+            </div>
           )}
-          </div>
-        }
-
-        {/* Instagram Results - always visible with default or user text */}
-        {tab === 'instagram' &&
-        <div className="mt-8 space-y-8">
-            {instagramCategories.map((cat) =>
-          <div key={cat.name} id={`insta-cat-${cat.name.replace(/\s+/g, '-').toLowerCase()}`}>
-                <h3 className="text-sm font-bold uppercase tracking-widest text-accent mb-4 border-b border-accent/20 pb-2">
-                  {cat.name}
-                </h3>
-                <div className="grid grid-cols-1 gap-8 md:grid-cols-2">
-                  {cat.styles.map((style: InstaStyle) => {
-                const transformed = style.transformFn(displayText);
-                return renderStyleCard(style.key, style.name, transformed);
-              })}
-                </div>
-              </div>
-          )}
-          </div>
-        }
+        </div>
       </div>
     </section>);
-
 };
 
 export default FontGenerator;
