@@ -79,8 +79,8 @@ const CompareFonts = () => {
                  className="flex-1 rounded-lg border border-border/30 bg-transparent px-3 py-2 text-sm text-white focus:outline-none focus:ring-2 focus:ring-accent/30"
                >
                  {allStyles.map(s => (
-                   <option key={s.key} value={s.key}>{s.name}</option>
-                 ))}
+                   <option key={s.key} value={s.key} className="bg-[#1a1a2e] text-white">{s.name}</option>
+                  ))}
                </select>
                  <button
                    onClick={() => handleCopy(previews[i], `compare-${i}`)}
