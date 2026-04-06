@@ -48,7 +48,7 @@ const CompareFonts = () => {
   }, []);
 
   return (
-    <section className="section-container py-16">
+    <section className="section-container py-8">
       <h2 className="font-heading text-2xl font-bold text-center mb-2 text-foreground md:text-3xl">
         Compare Fonts <span className="gold-gradient-text">Side-by-Side</span>
       </h2>

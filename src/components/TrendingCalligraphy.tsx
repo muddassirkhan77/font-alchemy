@@ -24,7 +24,7 @@ const TrendingCalligraphy = () => {
   }, []);
 
   return (
-    <section className="section-container py-16">
+    <section className="section-container py-8">
       <div className="flex items-center justify-center gap-2 mb-2">
         <Flame className="h-5 w-5 text-accent" />
         <h2 className="font-heading text-2xl font-bold text-foreground md:text-3xl">
