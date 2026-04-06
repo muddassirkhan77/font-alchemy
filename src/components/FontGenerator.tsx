@@ -70,10 +70,10 @@ const FontGenerator = () => {
             onChange={(e) => setText(e.target.value.slice(0, 500))}
             maxLength={500} />
           
-          <div className="mt-2 flex items-center justify-between">
+          <div className="mt-2 flex items-center justify-end">
             <button
               onClick={() => setText('')}
-              className="btn-navy gap-2 text-xs px-4 py-2 text-left mx-[600px]">
+              className="btn-navy gap-2 text-xs px-4 py-2">
               <RotateCcw className="h-3.5 w-3.5" /> Reset
             </button>
           </div>
