@@ -1,6 +1,7 @@
 import { useState, useCallback } from 'react';
 import { RotateCcw, Check, Copy } from 'lucide-react';
 import { calligraphyCategories } from '@/lib/calligraphyFonts';
+import { instagramCategories } from '@/lib/instagramFonts';
 
 const DEFAULT_PREVIEW = 'FontiFy Preview';
 
@@ -85,6 +86,21 @@ const FontGenerator = () => {
             <div key={cat.id}>
               <h3 className="text-sm font-bold uppercase tracking-widest text-accent mb-4 border-b border-accent/20 pb-2">
                 {cat.label}
+              </h3>
+              <div className="grid grid-cols-1 gap-8 md:grid-cols-2">
+                {cat.styles.map((style) => {
+                  const transformed = style.transformFn(displayText);
+                  return renderStyleCard(style.key, style.name, transformed);
+                })}
+              </div>
+            </div>
+          )}
+
+          {/* Instagram Results */}
+          {instagramCategories.map((cat) =>
+            <div key={cat.name} id={`insta-cat-${cat.name.replace(/\s+/g, '-').toLowerCase()}`}>
+              <h3 className="text-sm font-bold uppercase tracking-widest text-accent mb-4 border-b border-accent/20 pb-2">
+                {cat.name}
               </h3>
               <div className="grid grid-cols-1 gap-8 md:grid-cols-2">
                 {cat.styles.map((style) => {
