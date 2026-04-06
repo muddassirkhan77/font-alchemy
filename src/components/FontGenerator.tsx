@@ -1,6 +1,7 @@
 import { useState, useCallback } from 'react';
 import { RotateCcw, Check, Copy } from 'lucide-react';
 import { calligraphyCategories } from '@/lib/calligraphyFonts';
+import { instagramCategories } from '@/lib/instagramFonts';
 
 const DEFAULT_PREVIEW = 'FontiFy Preview';
 
