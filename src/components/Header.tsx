@@ -239,9 +239,6 @@ const Header = () => {
             className="text-sm font-medium text-muted-foreground transition-colors hover:text-foreground py-1"
             onClick={() => {
               setIsOpen(false);
-              if (link.tab) {
-                window.dispatchEvent(new CustomEvent('fontify-tab', { detail: link.tab }));
-              }
             }}>
             
               {link.label}
