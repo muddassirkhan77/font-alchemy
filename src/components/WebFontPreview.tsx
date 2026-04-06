@@ -127,7 +127,7 @@ const WebFontPreview = () => {
   ];
 
   return (
-    <section id="web-fonts" className="section-container pt-2 pb-10">
+    <section id="calligraphy" className="section-container pt-2 pb-10">
       {/* Subcategory heading */}
       <div className="flex items-center gap-2 mb-4">
         <Sparkles className="h-4 w-4 text-accent" />
