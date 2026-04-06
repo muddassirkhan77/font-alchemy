@@ -5,7 +5,7 @@ import logo from '@/assets/logo.png';
 
 const navLinks = [
 { label: 'Home', href: '#hero' },
-{ label: 'Calligraphy', href: '#tool', tab: 'calligraphy' as const },
+{ label: 'Calligraphy', href: '#calligraphy' },
 { label: 'Tips', href: '#tips' },
 { label: 'Premium', href: '#premium' },
 { label: 'Contact', href: '#footer' }];
@@ -124,10 +124,8 @@ const Header = () => {
         <nav className="hidden items-center gap-4 md:flex" aria-label="Main navigation">
           <a href="#hero" className="text-sm font-medium text-muted-foreground transition-colors hover:text-foreground">Home</a>
           <a
-            href="#tool"
-            className="text-sm font-medium text-muted-foreground transition-colors hover:text-foreground"
-            onClick={() => window.dispatchEvent(new CustomEvent('fontify-tab', { detail: 'calligraphy' }))}>
-            
+            href="#calligraphy"
+            className="text-sm font-medium text-muted-foreground transition-colors hover:text-foreground">
             Calligraphy
           </a>
 
@@ -241,9 +239,6 @@ const Header = () => {
             className="text-sm font-medium text-muted-foreground transition-colors hover:text-foreground py-1"
             onClick={() => {
               setIsOpen(false);
-              if (link.tab) {
-                window.dispatchEvent(new CustomEvent('fontify-tab', { detail: link.tab }));
-              }
             }}>
             
               {link.label}
