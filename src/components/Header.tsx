@@ -112,19 +112,19 @@ const Header = () => {
     <header className="sticky top-0 z-50 border-b border-border bg-card/80 backdrop-blur-md">
       <div className="section-container flex items-center justify-between py-1.5">
         {/* Brand */}
-        <a href="#hero" className="flex items-center gap-0.5">
+        <a href="/" onClick={(e) => { e.preventDefault(); navigate('/'); window.scrollTo({ top: 0, behavior: 'smooth' }); }} className="flex items-center gap-0.5">
           <img src={logo} alt="FontiFy Logo" className="h-14 w-auto" style={{ filter: 'contrast(1.3)' }} />
           <span className="font-extrabold gold-gradient-text tracking-tight -ml-1 mx-0 text-3xl font-serif text-left">FontiFy</span>
         </a>
 
         {/* Desktop nav */}
         <nav className="hidden items-center gap-4 md:flex" aria-label="Main navigation">
-          <a href="#hero" className="text-sm font-medium text-muted-foreground transition-colors hover:text-foreground">Home</a>
-          <a
-            href="#calligraphy"
+          <button onClick={() => { navigate('/'); setTimeout(() => window.scrollTo({ top: 0, behavior: 'smooth' }), 100); }} className="text-sm font-medium text-muted-foreground transition-colors hover:text-foreground">Home</button>
+          <button
+            onClick={() => { navigate('/'); setTimeout(() => document.getElementById('calligraphy')?.scrollIntoView({ behavior: 'smooth' }), 100); }}
             className="text-sm font-medium text-muted-foreground transition-colors hover:text-foreground">
             Calligraphy
-          </a>
+          </button>
 
           {/* Instagram dropdown - right next to Calligraphy */}
           <div ref={dropdownRef} className="relative">
@@ -201,12 +201,12 @@ const Header = () => {
               </div>
             }
           </div>
-          <a href="#tips" className="text-sm font-medium text-muted-foreground transition-colors hover:text-foreground">Tips</a>
-          <a href="#premium" className="text-sm font-medium text-muted-foreground transition-colors hover:text-foreground">Premium</a>
-          <a href="#footer" className="text-sm font-medium text-muted-foreground transition-colors hover:text-foreground">Contact</a>
-          <a href="#premium" className="btn-gold gap-1 text-[11px] px-2.5 py-1">
+          <button onClick={() => { navigate('/'); setTimeout(() => document.getElementById('tips')?.scrollIntoView({ behavior: 'smooth' }), 100); }} className="text-sm font-medium text-muted-foreground transition-colors hover:text-foreground">Tips</button>
+          <button onClick={() => { navigate('/'); setTimeout(() => document.getElementById('premium')?.scrollIntoView({ behavior: 'smooth' }), 100); }} className="text-sm font-medium text-muted-foreground transition-colors hover:text-foreground">Premium</button>
+          <button onClick={() => { navigate('/'); setTimeout(() => document.getElementById('footer')?.scrollIntoView({ behavior: 'smooth' }), 100); }} className="text-sm font-medium text-muted-foreground transition-colors hover:text-foreground">Contact</button>
+          <button onClick={() => { navigate('/'); setTimeout(() => document.getElementById('premium')?.scrollIntoView({ behavior: 'smooth' }), 100); }} className="btn-gold gap-1 text-[11px] px-2.5 py-1">
             <Crown className="h-3 w-3" /> Unlock Premium
-          </a>
+          </button>
         </nav>
 
         {/* Mobile toggle */}
@@ -230,16 +230,23 @@ const Header = () => {
         
         <nav className="section-container flex flex-col gap-3 py-4" aria-label="Mobile navigation">
           {navLinks.map((link) =>
-          <a
+          <button
             key={link.label}
-            href={link.href}
-            className="text-sm font-medium text-muted-foreground transition-colors hover:text-foreground py-1"
+            className="text-left text-sm font-medium text-muted-foreground transition-colors hover:text-foreground py-1"
             onClick={() => {
               setIsOpen(false);
+              navigate('/');
+              setTimeout(() => {
+                if (link.href === '#hero') {
+                  window.scrollTo({ top: 0, behavior: 'smooth' });
+                } else {
+                  document.getElementById(link.href.slice(1))?.scrollIntoView({ behavior: 'smooth' });
+                }
+              }, 100);
             }}>
             
               {link.label}
-            </a>
+            </button>
           )}
 
           {/* Mobile Instagram with expandable categories */}
