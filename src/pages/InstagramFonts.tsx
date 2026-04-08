@@ -1,7 +1,7 @@
-import { useState, useCallback } from 'react';
+import { useState, useCallback, useEffect } from 'react';
 import { RotateCcw, Check, Copy, ArrowLeft } from 'lucide-react';
 import { instagramCategories } from '@/lib/instagramFonts';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import Header from '@/components/Header';
 import SiteFooter from '@/components/SiteFooter';
 
@@ -9,7 +9,16 @@ const DEFAULT_PREVIEW = 'FontiFy Preview';
 
 const InstagramFonts = () => {
   const [text, setText] = useState('');
+  const location = useLocation();
   const [copiedKey, setCopiedKey] = useState<string | null>(null);
+
+  useEffect(() => {
+    if (location.hash) {
+      setTimeout(() => {
+        document.getElementById(location.hash.slice(1))?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }, 100);
+    }
+  }, [location.hash]);
 
   const displayText = text.length > 0 ? text : DEFAULT_PREVIEW;
 
