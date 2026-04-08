@@ -1,6 +1,7 @@
 import { useState, useCallback, useRef, useEffect } from 'react';
 import { Menu, X, Crown, ChevronDown, ChevronUp } from 'lucide-react';
 import { instagramCategories } from '@/lib/instagramFonts';
+import { useNavigate } from 'react-router-dom';
 import logo from '@/assets/logo.png';
 
 const navLinks = [
@@ -14,6 +15,7 @@ const navLinks = [
 const categoryNames = instagramCategories.map((c) => c.name);
 
 const Header = () => {
+  const navigate = useNavigate();
   const [isOpen, setIsOpen] = useState(false);
   const [instaOpen, setInstaOpen] = useState(false);
   const [mobileInstaOpen, setMobileInstaOpen] = useState(false);
@@ -45,24 +47,19 @@ const Header = () => {
   }, [focusIdx]);
 
   const navigateToCategory = (catName: string) => {
-    window.dispatchEvent(new CustomEvent('fontify-tab', { detail: 'instagram' }));
     setInstaOpen(false);
     setMobileInstaOpen(false);
     setIsOpen(false);
     setFocusIdx(-1);
-    // Scroll to category after tab switch
-    setTimeout(() => {
-      const id = `insta-cat-${catName.replace(/\s+/g, '-').toLowerCase()}`;
-      document.getElementById(id)?.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    }, 100);
+    const hash = `insta-cat-${catName.replace(/\s+/g, '-').toLowerCase()}`;
+    navigate(`/instagram-fonts#${hash}`);
   };
 
   const navigateToInstagram = () => {
-    window.dispatchEvent(new CustomEvent('fontify-tab', { detail: 'instagram' }));
     setInstaOpen(false);
     setIsOpen(false);
     setFocusIdx(-1);
-    document.getElementById('tool')?.scrollIntoView({ behavior: 'smooth' });
+    navigate('/instagram-fonts');
   };
 
   const handleKeyDown = (e: React.KeyboardEvent) => {
