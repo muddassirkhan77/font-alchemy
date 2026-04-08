@@ -1,7 +1,6 @@
 import { useState, useCallback } from 'react';
 import { RotateCcw, Check, Copy } from 'lucide-react';
 import { calligraphyCategories } from '@/lib/calligraphyFonts';
-import { instagramCategories } from '@/lib/instagramFonts';
 
 const DEFAULT_PREVIEW = 'FontiFy Preview';
 
@@ -59,7 +58,7 @@ const FontGenerator = () => {
   return (
     <section id="tool" className="section-container pt-2 pb-16">
       <h2 className="font-heading text-2xl font-bold text-foreground md:text-3xl text-center mb-6">
-        <span className="gold-gradient-text">Instagram</span> Fonts
+        <span className="gold-gradient-text">Calligraphy</span> Fonts
       </h2>
       <div className="card-premium max-w-6xl p-4 md:p-8 py-[15px] px-[15px] rounded-md mx-0 border-2">
         {/* Input area */}
@@ -96,20 +95,6 @@ const FontGenerator = () => {
             </div>
           )}
 
-          {/* Instagram Results */}
-          {instagramCategories.map((cat) =>
-            <div key={cat.name} id={`insta-cat-${cat.name.replace(/\s+/g, '-').toLowerCase()}`}>
-              <h3 className="text-sm font-bold uppercase tracking-widest text-accent mb-4 border-b border-accent/20 pb-2">
-                {cat.name}
-              </h3>
-              <div className="grid grid-cols-1 gap-8 md:grid-cols-2">
-                {cat.styles.map((style) => {
-                  const transformed = style.transformFn(displayText);
-                  return renderStyleCard(style.key, style.name, transformed);
-                })}
-              </div>
-            </div>
-          )}
         </div>
       </div>
     </section>);
