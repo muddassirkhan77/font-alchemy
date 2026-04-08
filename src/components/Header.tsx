@@ -112,19 +112,19 @@ const Header = () => {
     <header className="sticky top-0 z-50 border-b border-border bg-card/80 backdrop-blur-md">
       <div className="section-container flex items-center justify-between py-1.5">
         {/* Brand */}
-        <a href="#hero" className="flex items-center gap-0.5">
+        <a href="/" onClick={(e) => { e.preventDefault(); navigate('/'); window.scrollTo({ top: 0, behavior: 'smooth' }); }} className="flex items-center gap-0.5">
           <img src={logo} alt="FontiFy Logo" className="h-14 w-auto" style={{ filter: 'contrast(1.3)' }} />
           <span className="font-extrabold gold-gradient-text tracking-tight -ml-1 mx-0 text-3xl font-serif text-left">FontiFy</span>
         </a>
 
         {/* Desktop nav */}
         <nav className="hidden items-center gap-4 md:flex" aria-label="Main navigation">
-          <a href="#hero" className="text-sm font-medium text-muted-foreground transition-colors hover:text-foreground">Home</a>
-          <a
-            href="#calligraphy"
+          <button onClick={() => { navigate('/'); setTimeout(() => window.scrollTo({ top: 0, behavior: 'smooth' }), 100); }} className="text-sm font-medium text-muted-foreground transition-colors hover:text-foreground">Home</button>
+          <button
+            onClick={() => { navigate('/'); setTimeout(() => document.getElementById('calligraphy')?.scrollIntoView({ behavior: 'smooth' }), 100); }}
             className="text-sm font-medium text-muted-foreground transition-colors hover:text-foreground">
             Calligraphy
-          </a>
+          </button>
 
           {/* Instagram dropdown - right next to Calligraphy */}
           <div ref={dropdownRef} className="relative">

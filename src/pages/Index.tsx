@@ -2,7 +2,6 @@ import Header from '@/components/Header';
 import HeroSection from '@/components/HeroSection';
 import FontGenerator from '@/components/FontGenerator';
 import CompareFonts from '@/components/CompareFonts';
-import TrendingCalligraphy from '@/components/TrendingCalligraphy';
 import WebFontPreview from '@/components/WebFontPreview';
 import SignatureGenerator from '@/components/SignatureGenerator';
 import PremiumFeatures from '@/components/PremiumFeatures';
@@ -11,13 +10,12 @@ import SiteFooter from '@/components/SiteFooter';
 
 const Index = () => {
   return (
-    <div className="min-h-screen bg-background">
+    <div id="hero" className="min-h-screen bg-background">
       <Header />
       <main>
         <HeroSection />
         <WebFontPreview />
         <CompareFonts />
-        <TrendingCalligraphy />
         <FontGenerator />
         <PremiumFeatures />
         <CalligraphyTips />
