@@ -42,8 +42,8 @@ const InstagramFonts = () => {
     return (
       <div
         key={key}
-        className="card-premium rounded-2xl overflow-hidden p-6 transition-all duration-400">
-        <div className="flex items-center justify-between mb-3 rounded-t-xl px-4 py-3" style={{ background: '#1D2F46' }}>
+        className="card-premium rounded-2xl overflow-hidden transition-all duration-400">
+        <div className="flex items-center justify-between px-4 py-3" style={{ background: '#1D2F46' }}>
           <p className="text-sm font-bold uppercase tracking-wider text-white">
             {name}
           </p>
