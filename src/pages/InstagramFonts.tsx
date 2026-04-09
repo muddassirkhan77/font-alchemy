@@ -80,7 +80,7 @@ const InstagramFonts = () => {
           <h1 className="font-heading text-2xl font-bold text-foreground md:text-3xl text-center mb-6">
             <span className="gold-gradient-text">Instagram</span> Fonts
           </h1>
-          <div className="card-premium max-w-6xl p-4 md:p-8 py-[15px] px-[15px] rounded-md mx-0 border-2">
+          <div className="card-premium max-w-6xl p-4 md:p-8 py-[15px] px-[15px] rounded-md mx-auto border-2">
             <div className="relative">
               <textarea
                 className="input-premium min-h-[120px]"
