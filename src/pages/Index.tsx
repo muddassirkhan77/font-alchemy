@@ -1,6 +1,6 @@
 import Header from '@/components/Header';
 import HeroSection from '@/components/HeroSection';
-import FontGenerator from '@/components/FontGenerator';
+
 import CompareFonts from '@/components/CompareFonts';
 import TrendingCalligraphy from '@/components/TrendingCalligraphy';
 import WebFontPreview from '@/components/WebFontPreview';
@@ -18,7 +18,7 @@ const Index = () => {
         <WebFontPreview />
         <CompareFonts />
         <TrendingCalligraphy />
-        <FontGenerator />
+        
         <PremiumFeatures />
         <CalligraphyTips />
         
