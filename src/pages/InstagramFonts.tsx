@@ -42,8 +42,8 @@ const InstagramFonts = () => {
     return (
       <div
         key={key}
-        className="card-premium rounded-2xl overflow-hidden p-6 transition-all duration-400">
-        <div className="flex items-center justify-between mb-3 rounded-t-xl px-4 py-3" style={{ background: '#1D2F46' }}>
+        className="card-premium rounded-2xl overflow-hidden transition-all duration-400">
+        <div className="flex items-center justify-between px-4 py-3" style={{ background: '#1D2F46' }}>
           <p className="text-sm font-bold uppercase tracking-wider text-white">
             {name}
           </p>
@@ -58,7 +58,7 @@ const InstagramFonts = () => {
             }
           </button>
         </div>
-        <div className="rounded-xl h-28 flex items-center justify-center overflow-hidden px-5" style={{ background: '#1A1A2E' }}>
+        <div className="rounded-b-xl h-28 flex items-center justify-center overflow-hidden px-5" style={{ background: '#1A1A2E' }}>
           <p className="text-2xl leading-relaxed break-all text-center line-clamp-2 w-full" style={{ color: 'hsl(0 0% 92%)' }}>
             {transformed}
           </p>
@@ -104,7 +104,7 @@ const InstagramFonts = () => {
                   <h3 className="text-sm font-bold uppercase tracking-widest text-accent mb-4 border-b border-accent/20 pb-2">
                     {cat.name}
                   </h3>
-                  <div className="grid grid-cols-1 gap-8 md:grid-cols-2">
+                  <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
                     {cat.styles.map((style) => {
                       const transformed = style.transformFn(displayText);
                       return renderStyleCard(style.key, style.name, transformed);
