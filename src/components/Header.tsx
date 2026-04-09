@@ -6,7 +6,7 @@ import logo from '@/assets/logo.png';
 
 const navLinks = [
 { label: 'Home', href: '#hero' },
-{ label: 'Calligraphy', href: '#calligraphy' },
+{ label: 'Signature Generator', href: '/signature-generator', isRoute: true },
 { label: 'Tips', href: '#tips' },
 { label: 'Premium', href: '#premium' },
 { label: 'Contact', href: '#footer' }];
@@ -120,11 +120,11 @@ const Header = () => {
         {/* Desktop nav */}
         <nav className="hidden items-center gap-4 md:flex" aria-label="Main navigation">
           <a href="#hero" className="text-sm font-medium text-muted-foreground transition-colors hover:text-foreground">Home</a>
-          <a
-            href="#calligraphy"
+          <button
+            onClick={() => navigate('/signature-generator')}
             className="text-sm font-medium text-muted-foreground transition-colors hover:text-foreground">
-            Calligraphy
-          </a>
+            Signature Generator
+          </button>
 
           {/* Instagram dropdown - right next to Calligraphy */}
           <div ref={dropdownRef} className="relative">
@@ -230,16 +230,22 @@ const Header = () => {
         
         <nav className="section-container flex flex-col gap-3 py-4" aria-label="Mobile navigation">
           {navLinks.map((link) =>
-          <a
-            key={link.label}
-            href={link.href}
-            className="text-sm font-medium text-muted-foreground transition-colors hover:text-foreground py-1"
-            onClick={() => {
-              setIsOpen(false);
-            }}>
-            
-              {link.label}
-            </a>
+            'isRoute' in link && link.isRoute ? (
+              <button
+                key={link.label}
+                className="text-sm font-medium text-muted-foreground transition-colors hover:text-foreground py-1 text-left"
+                onClick={() => { navigate(link.href); setIsOpen(false); }}>
+                {link.label}
+              </button>
+            ) : (
+              <a
+                key={link.label}
+                href={link.href}
+                className="text-sm font-medium text-muted-foreground transition-colors hover:text-foreground py-1"
+                onClick={() => setIsOpen(false)}>
+                {link.label}
+              </a>
+            )
           )}
 
           {/* Mobile Instagram with expandable categories */}
