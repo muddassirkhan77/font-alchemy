@@ -124,75 +124,62 @@ const InstagramFonts = () => {
             </div>
 
             {/* Customization Controls */}
-            <div className="mt-6 rounded-xl p-4 md:p-5 space-y-5" style={{ background: '#1D2F46' }}>
-              <h3 className="text-sm font-bold uppercase tracking-widest text-white flex items-center gap-2">
-                <Palette className="h-4 w-4 text-accent" /> Customize Preview
-              </h3>
+            <div className="mt-6 rounded-xl p-3 w-20 space-y-3" style={{ background: '#1D2F46' }}>
+              <p className="text-[9px] font-bold uppercase tracking-wider text-white/70 flex items-center gap-1">
+                <Palette className="h-3 w-3 text-accent" /> Style
+              </p>
 
-              {/* Text Color */}
-              <div className="space-y-2">
-                <label className="text-xs font-semibold text-white/70 uppercase tracking-wider">Text Color</label>
-                <div className="flex flex-wrap items-center gap-2">
-                  {COLOR_PRESETS.map(c => (
-                    <button
-                      key={c.value}
-                      onClick={() => setTextColor(c.value)}
-                      className={`h-7 w-7 rounded-full border-2 transition-all duration-200 ${
-                        textColor === c.value ? 'border-accent scale-110 shadow-lg' : 'border-white/20 hover:border-white/50'
-                      }`}
-                      style={{ background: c.value }}
-                      title={c.label}
-                    />
-                  ))}
-                  <div className="flex items-center gap-2 ml-2">
-                    <input
-                      type="color"
-                      value={textColor}
-                      onChange={e => setTextColor(e.target.value)}
-                      className="h-7 w-7 rounded cursor-pointer border border-white/20 bg-transparent"
-                      title="Custom color"
-                    />
-                    <span className="text-xs text-white/50 font-mono">{textColor}</span>
-                  </div>
-                </div>
+              {/* Color swatches */}
+              <div className="grid grid-cols-2 gap-1">
+                {COLOR_PRESETS.slice(0, 8).map(c => (
+                  <button
+                    key={c.value}
+                    onClick={() => setTextColor(c.value)}
+                    className={`h-5 w-5 rounded-full border-2 transition-all duration-200 mx-auto ${
+                      textColor === c.value ? 'border-accent scale-110' : 'border-white/20'
+                    }`}
+                    style={{ background: c.value }}
+                    title={c.label}
+                  />
+                ))}
               </div>
+              <input
+                type="color"
+                value={textColor}
+                onChange={e => setTextColor(e.target.value)}
+                className="h-5 w-full rounded cursor-pointer border border-white/20 bg-transparent"
+                title="Custom color"
+              />
 
               {/* Font Size */}
-              <div className="space-y-2">
-                <label className="text-xs font-semibold text-white/70 uppercase tracking-wider">
-                  Font Size: {fontSize}px
-                </label>
+              <div>
+                <p className="text-[9px] text-white/50 mb-1">{fontSize}px</p>
                 <Slider
                   value={[fontSize]}
                   onValueChange={v => setFontSize(v[0])}
                   min={14}
                   max={48}
                   step={1}
-                  className="w-full max-w-xs"
+                  className="w-full"
                 />
               </div>
 
-              {/* Background Toggle */}
-              <div className="space-y-2">
-                <label className="text-xs font-semibold text-white/70 uppercase tracking-wider">Background</label>
-                <div className="flex gap-2">
-                  <button
-                    onClick={() => setBgMode('dark')}
-                    className={`inline-flex items-center gap-2 rounded-lg px-4 py-2 text-xs font-semibold transition-all duration-200 ${
-                      bgMode === 'dark' ? 'bg-accent text-white' : 'btn-navy'
-                    }`}
-                  >
-                    <Moon className="h-3.5 w-3.5" /> Dark
-                  </button>
-                  <button
-                    onClick={() => setBgMode('light')}
-                    className={`inline-flex items-center gap-2 rounded-lg px-4 py-2 text-xs font-semibold transition-all duration-200 ${
-                      bgMode === 'light' ? 'bg-accent text-white' : 'btn-navy'
-                    }`}
-                  >
-                    <Sun className="h-3.5 w-3.5" /> Light
-                  </button>
-                </div>
+              {/* Bg toggle */}
+              <div className="flex flex-col gap-1">
+                <button
+                  onClick={() => setBgMode('dark')}
+                  className={`rounded p-1 transition-all ${bgMode === 'dark' ? 'bg-accent' : 'bg-white/10'}`}
+                  title="Dark background"
+                >
+                  <Moon className="h-3 w-3 text-white mx-auto" />
+                </button>
+                <button
+                  onClick={() => setBgMode('light')}
+                  className={`rounded p-1 transition-all ${bgMode === 'light' ? 'bg-accent' : 'bg-white/10'}`}
+                  title="Light background"
+                >
+                  <Sun className="h-3 w-3 text-white mx-auto" />
+                </button>
               </div>
             </div>
 
