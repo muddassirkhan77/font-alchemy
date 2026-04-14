@@ -1,16 +1,33 @@
 import { useState, useCallback, useEffect } from 'react';
-import { RotateCcw, Check, Copy, ArrowLeft } from 'lucide-react';
+import { RotateCcw, Check, Copy, ArrowLeft, Sun, Moon, Palette } from 'lucide-react';
 import { instagramCategories } from '@/lib/instagramFonts';
 import { Link, useLocation } from 'react-router-dom';
 import Header from '@/components/Header';
 import SiteFooter from '@/components/SiteFooter';
+import { Slider } from '@/components/ui/slider';
 
 const DEFAULT_PREVIEW = 'FontiFy Preview';
+
+const COLOR_PRESETS = [
+  { label: 'White', value: '#EBEBEB' },
+  { label: 'Gold', value: '#D4A843' },
+  { label: 'Cyan', value: '#00D4FF' },
+  { label: 'Lime', value: '#A3E635' },
+  { label: 'Pink', value: '#F472B6' },
+  { label: 'Orange', value: '#FB923C' },
+  { label: 'Red', value: '#EF4444' },
+  { label: 'Violet', value: '#A78BFA' },
+];
+
+type BgMode = 'dark' | 'light';
 
 const InstagramFonts = () => {
   const [text, setText] = useState('');
   const location = useLocation();
   const [copiedKey, setCopiedKey] = useState<string | null>(null);
+  const [textColor, setTextColor] = useState('#EBEBEB');
+  const [fontSize, setFontSize] = useState(24);
+  const [bgMode, setBgMode] = useState<BgMode>('dark');
 
   useEffect(() => {
     if (location.hash) {
@@ -21,6 +38,8 @@ const InstagramFonts = () => {
   }, [location.hash]);
 
   const displayText = text.length > 0 ? text : DEFAULT_PREVIEW;
+
+  const previewBg = bgMode === 'dark' ? '#1A1A2E' : '#F5F5F5';
 
   const handleCopy = useCallback(async (transformed: string, key: string) => {
     try {
@@ -58,8 +77,14 @@ const InstagramFonts = () => {
             }
           </button>
         </div>
-        <div className="rounded-b-xl h-28 flex items-center justify-center overflow-hidden px-5" style={{ background: '#1A1A2E' }}>
-          <p className="text-2xl leading-relaxed break-all text-center line-clamp-2 w-full" style={{ color: 'hsl(0 0% 92%)' }}>
+        <div
+          className="rounded-b-xl h-28 flex items-center justify-center overflow-hidden px-5 transition-colors duration-300"
+          style={{ background: previewBg }}
+        >
+          <p
+            className="leading-relaxed break-all text-center line-clamp-2 w-full"
+            style={{ color: textColor, fontSize: `${fontSize}px` }}
+          >
             {transformed}
           </p>
         </div>
@@ -95,6 +120,79 @@ const InstagramFonts = () => {
                   className="btn-navy gap-2 text-xs px-4 py-2">
                   <RotateCcw className="h-3.5 w-3.5" /> Reset
                 </button>
+              </div>
+            </div>
+
+            {/* Customization Controls */}
+            <div className="mt-6 rounded-xl p-4 md:p-5 space-y-5" style={{ background: '#1D2F46' }}>
+              <h3 className="text-sm font-bold uppercase tracking-widest text-white flex items-center gap-2">
+                <Palette className="h-4 w-4 text-accent" /> Customize Preview
+              </h3>
+
+              {/* Text Color */}
+              <div className="space-y-2">
+                <label className="text-xs font-semibold text-white/70 uppercase tracking-wider">Text Color</label>
+                <div className="flex flex-wrap items-center gap-2">
+                  {COLOR_PRESETS.map(c => (
+                    <button
+                      key={c.value}
+                      onClick={() => setTextColor(c.value)}
+                      className={`h-7 w-7 rounded-full border-2 transition-all duration-200 ${
+                        textColor === c.value ? 'border-accent scale-110 shadow-lg' : 'border-white/20 hover:border-white/50'
+                      }`}
+                      style={{ background: c.value }}
+                      title={c.label}
+                    />
+                  ))}
+                  <div className="flex items-center gap-2 ml-2">
+                    <input
+                      type="color"
+                      value={textColor}
+                      onChange={e => setTextColor(e.target.value)}
+                      className="h-7 w-7 rounded cursor-pointer border border-white/20 bg-transparent"
+                      title="Custom color"
+                    />
+                    <span className="text-xs text-white/50 font-mono">{textColor}</span>
+                  </div>
+                </div>
+              </div>
+
+              {/* Font Size */}
+              <div className="space-y-2">
+                <label className="text-xs font-semibold text-white/70 uppercase tracking-wider">
+                  Font Size: {fontSize}px
+                </label>
+                <Slider
+                  value={[fontSize]}
+                  onValueChange={v => setFontSize(v[0])}
+                  min={14}
+                  max={48}
+                  step={1}
+                  className="w-full max-w-xs"
+                />
+              </div>
+
+              {/* Background Toggle */}
+              <div className="space-y-2">
+                <label className="text-xs font-semibold text-white/70 uppercase tracking-wider">Background</label>
+                <div className="flex gap-2">
+                  <button
+                    onClick={() => setBgMode('dark')}
+                    className={`inline-flex items-center gap-2 rounded-lg px-4 py-2 text-xs font-semibold transition-all duration-200 ${
+                      bgMode === 'dark' ? 'bg-accent text-white' : 'btn-navy'
+                    }`}
+                  >
+                    <Moon className="h-3.5 w-3.5" /> Dark
+                  </button>
+                  <button
+                    onClick={() => setBgMode('light')}
+                    className={`inline-flex items-center gap-2 rounded-lg px-4 py-2 text-xs font-semibold transition-all duration-200 ${
+                      bgMode === 'light' ? 'bg-accent text-white' : 'btn-navy'
+                    }`}
+                  >
+                    <Sun className="h-3.5 w-3.5" /> Light
+                  </button>
+                </div>
               </div>
             </div>
 
