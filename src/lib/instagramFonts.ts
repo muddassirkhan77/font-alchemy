@@ -638,6 +638,88 @@ export const instagramCategories: InstaCategory[] = [
       { key: 'fullcrazy_9', name: 'Crazy Style 9', transformFn: deco('💢♜  ', '  🐟🎁🍩😎', crazy9) },
     ],
   },
+
+  // ─── 23. Modern 2025 ───
+  {
+    name: 'Modern 2025',
+    styles: [
+      { key: 'm25_aesthetic', name: 'Aesthetic Spaced', transformFn: (t) => [...t.toLowerCase()].join(' ') },
+      { key: 'm25_uppergap', name: 'Upper Gap', transformFn: (t) => [...t.toUpperCase()].join(' ') },
+      { key: 'm25_dotline', name: 'Dot Line', transformFn: (t) => [...t].join(' · ') },
+      { key: 'm25_softbold', name: 'Soft Bold', transformFn: deco('⌜ ', ' ⌟', sansBold) },
+      { key: 'm25_quietluxe', name: 'Quiet Luxe', transformFn: deco('· ', ' ·', mathItalic) },
+      { key: 'm25_arrows', name: 'Arrow Tag', transformFn: deco('↳ ', ' ⌫', sansBoldItalic) },
+      { key: 'm25_corner', name: 'Corner Frame', transformFn: deco('┌ ', ' ┘', sans) },
+      { key: 'm25_glitch', name: 'Glitch Mono', transformFn: (t) => comb(monospace(t), '\u0301') },
+      { key: 'm25_y2k', name: 'Y2K Bubble', transformFn: deco('⋆˚｡⋆ ', ' ⋆˚｡⋆', boldScript) },
+      { key: 'm25_softstar', name: 'Soft Star', transformFn: deco('✦ ', ' ✦', sansItalic) },
+    ],
+  },
+
+  // ─── 24. VIP Luxury ───
+  {
+    name: 'VIP Luxury',
+    styles: [
+      { key: 'vip_blackcard', name: 'Black Card', transformFn: deco('▰ ', ' ▰', mathBold) },
+      { key: 'vip_platinum', name: 'Platinum Bar', transformFn: deco('━━ ', ' ━━', sansBold) },
+      { key: 'vip_gold', name: 'Gold Frame', transformFn: deco('❮ ', ' ❯', boldItalic) },
+      { key: 'vip_diamondedge', name: 'Diamond Edge', transformFn: deco('◆ ', ' ◆', mathBold) },
+      { key: 'vip_royal', name: 'Royal Mark', transformFn: deco('⟪ ', ' ⟫', boldScript) },
+      { key: 'vip_crownmark', name: 'Crown Mark', transformFn: deco('♛ ', ' ♛', boldItalic) },
+      { key: 'vip_signature', name: 'Signature Line', transformFn: (t) => comb(boldScript(t), '\u0305') },
+      { key: 'vip_premium', name: 'Premium Tag', transformFn: deco('【 ', ' 】', mathBold) },
+      { key: 'vip_eclipse', name: 'Eclipse', transformFn: deco('◐ ', ' ◑', sansBold) },
+    ],
+  },
+
+  // ─── 25. Gaming Edge ───
+  {
+    name: 'Gaming Edge',
+    styles: [
+      { key: 'ge_blade', name: 'Blade', transformFn: deco('▶▶ ', ' ◀◀', sansBoldItalic) },
+      { key: 'ge_sniper', name: 'Sniper', transformFn: deco('⌖ ', ' ⌖', sansBold) },
+      { key: 'ge_armor', name: 'Armor', transformFn: deco('◤◢ ', ' ◣◥', mathBold) },
+      { key: 'ge_neon', name: 'Neon Tag', transformFn: deco('⟦ ', ' ⟧', sansBoldItalic) },
+      { key: 'ge_skull', name: 'Skull Squad', transformFn: deco('☠ ', ' ☠', sansBold) },
+      { key: 'ge_combat', name: 'Combat Code', transformFn: deco('⊳ ', ' ⊲', monospace) },
+      { key: 'ge_glitchsword', name: 'Glitch Sword', transformFn: (t) => '⚔ ' + comb(sansBold(t), '\u0334') + ' ⚔' },
+      { key: 'ge_clantag', name: 'Clan Tag', transformFn: deco('「 ', ' 」', mathBold) },
+      { key: 'ge_lightning', name: 'Lightning', transformFn: deco('⚡ ', ' ⚡', sansBoldItalic) },
+    ],
+  },
+
+  // ─── 26. Minimal Aesthetic ───
+  {
+    name: 'Minimal Aesthetic',
+    styles: [
+      { key: 'min_clean', name: 'Clean Sans', transformFn: sans },
+      { key: 'min_thin', name: 'Thin Spaced', transformFn: (t) => [...sans(t)].join(' ') },
+      { key: 'min_dot', name: 'Mid Dot', transformFn: (t) => [...t].join('·') },
+      { key: 'min_dash', name: 'Dash Line', transformFn: deco('— ', ' —', sans) },
+      { key: 'min_slashed', name: 'Slashed', transformFn: (t) => [...sans(t)].join('/') },
+      { key: 'min_underscore', name: 'Underscore', transformFn: (t) => [...sans(t)].join('_') },
+      { key: 'min_brackets', name: 'Soft Brackets', transformFn: deco('( ', ' )', mathItalic) },
+      { key: 'min_arrowdot', name: 'Arrow Dot', transformFn: deco('→ ', ' •', sans) },
+      { key: 'min_caret', name: 'Caret Line', transformFn: deco('^ ', ' ^', mathItalic) },
+    ],
+  },
+
+  // ─── 27. Emoji Decorated ───
+  {
+    name: 'Emoji Decorated',
+    styles: [
+      { key: 'ed_starsky', name: 'Star Sky', transformFn: deco('🌟 ', ' 🌟', boldScript) },
+      { key: 'ed_moon', name: 'Crescent Moon', transformFn: deco('🌙 ', ' 🌙', boldScript) },
+      { key: 'ed_cherry', name: 'Cherry Blossom', transformFn: deco('🌸 ', ' 🌸', script) },
+      { key: 'ed_ocean', name: 'Ocean Wave', transformFn: deco('🌊 ', ' 🌊', mathItalic) },
+      { key: 'ed_fireheart', name: 'Fire Heart', transformFn: deco('🔥 ', ' ❤️', sansBold) },
+      { key: 'ed_crownstar', name: 'Crown Star', transformFn: deco('👑 ', ' ✨', boldItalic) },
+      { key: 'ed_butterflysoft', name: 'Soft Butterfly', transformFn: deco('🦋 ', ' 🦋', sansItalic) },
+      { key: 'ed_dreamy', name: 'Dreamy Cloud', transformFn: deco('☁️ ', ' ☁️', script) },
+      { key: 'ed_galaxy', name: 'Galaxy', transformFn: deco('✨🌌 ', ' 🌌✨', boldScript) },
+      { key: 'ed_loveline', name: 'Love Line', transformFn: deco('♡ ', ' ♡', mathItalic) },
+    ],
+  },
 ];
 
 // Flat list helper
