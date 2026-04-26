@@ -123,62 +123,66 @@ const InstagramFonts = () => {
               </div>
             </div>
 
-            {/* Customization Controls */}
-            <div className="mt-6 rounded-xl p-3 w-20 space-y-3" style={{ background: '#1D2F46' }}>
-              <p className="text-[9px] font-bold uppercase tracking-wider text-white/70 flex items-center gap-1">
+            {/* Customization Controls - single thin row */}
+            <div
+              className="mt-4 rounded-xl px-3 py-2 flex items-center gap-3 flex-wrap"
+              style={{ background: '#1D2F46' }}
+            >
+              <div className="flex items-center gap-1.5 text-[10px] font-bold uppercase tracking-wider text-white/70">
                 <Palette className="h-3 w-3 text-accent" /> Style
-              </p>
+              </div>
 
-              {/* Color swatches */}
-              <div className="grid grid-cols-2 gap-1">
-                {COLOR_PRESETS.slice(0, 8).map(c => (
+              {/* Color swatches inline */}
+              <div className="flex items-center gap-1">
+                {COLOR_PRESETS.map(c => (
                   <button
                     key={c.value}
                     onClick={() => setTextColor(c.value)}
-                    className={`h-5 w-5 rounded-full border-2 transition-all duration-200 mx-auto ${
+                    className={`h-5 w-5 rounded-full border-2 transition-all duration-200 ${
                       textColor === c.value ? 'border-accent scale-110' : 'border-white/20'
                     }`}
                     style={{ background: c.value }}
                     title={c.label}
                   />
                 ))}
+                <input
+                  type="color"
+                  value={textColor}
+                  onChange={e => setTextColor(e.target.value)}
+                  className="h-5 w-5 rounded cursor-pointer border border-white/20 bg-transparent p-0"
+                  title="Custom color"
+                />
               </div>
-              <input
-                type="color"
-                value={textColor}
-                onChange={e => setTextColor(e.target.value)}
-                className="h-5 w-full rounded cursor-pointer border border-white/20 bg-transparent"
-                title="Custom color"
-              />
 
               {/* Font Size */}
-              <div>
-                <p className="text-[9px] text-white/50 mb-1">{fontSize}px</p>
+              <div className="flex items-center gap-2 min-w-[140px] flex-1">
+                <span className="text-[10px] text-white/60 whitespace-nowrap">Size</span>
                 <Slider
                   value={[fontSize]}
                   onValueChange={v => setFontSize(v[0])}
                   min={14}
                   max={48}
                   step={1}
-                  className="w-full"
+                  className="flex-1"
                 />
+                <span className="text-[10px] text-white/70 tabular-nums w-8 text-right">{fontSize}px</span>
               </div>
 
               {/* Bg toggle */}
-              <div className="flex flex-col gap-1">
+              <div className="flex items-center gap-1">
                 <button
                   onClick={() => setBgMode('dark')}
-                  className={`rounded p-1 transition-all ${bgMode === 'dark' ? 'bg-accent' : 'bg-white/10'}`}
+                  className={`rounded p-1.5 transition-all ${bgMode === 'dark' ? 'bg-accent' : 'bg-white/10'}`}
                   title="Dark background"
                 >
-                  <Moon className="h-3 w-3 text-white mx-auto" />
+                  <Moon className="h-3.5 w-3.5 text-white" />
                 </button>
                 <button
                   onClick={() => setBgMode('light')}
-                  className={`rounded p-1 transition-all ${bgMode === 'light' ? 'bg-accent' : 'bg-white/10'}`}
+                  className={`rounded p-1.5 transition-all ${bgMode === 'light' ? 'bg-accent' : 'bg-white/10'}`}
                   title="Light background"
                 >
-                  <Sun className="h-3 w-3 text-white mx-auto" />
+                  <Sun className="h-3.5 w-3.5 text-white" />
                 </button>
               </div>
             </div>
