@@ -175,6 +175,46 @@ const allStyles: CalliStyle[] = [
     transformFn: deco('✯ ', ' ✯', mathBold) },
   { key: 'lux_chain', name: 'Chain Link', category: 'luxury',
     transformFn: deco('⛓ ', ' ⛓', doubleStruck) },
+
+  // ════════ MODERN SIGNATURE (NEW) ════════
+  { key: 'sig_modern_line', name: 'Modern Line', category: 'signature',
+    transformFn: (t) => '— ' + script(t) + ' ⌁' },
+  { key: 'sig_arrow_flow', name: 'Arrow Flow', category: 'signature',
+    transformFn: deco('↬ ', ' ↫', boldScript) },
+  { key: 'sig_quill_bar', name: 'Quill Bar', category: 'signature',
+    transformFn: (t) => comb(boldScript(t), '\u0304') },
+  { key: 'sig_smooth_dot', name: 'Smooth Dot', category: 'signature',
+    transformFn: deco('· ', ' ·', boldScript) },
+
+  // ════════ MODERN WEDDING (NEW) ════════
+  { key: 'wed_lace', name: 'Lace Border', category: 'wedding',
+    transformFn: deco('⊰❀ ', ' ❀⊱', boldScript) },
+  { key: 'wed_pearl', name: 'Pearl Script', category: 'wedding',
+    transformFn: deco('○ ', ' ○', script) },
+  { key: 'wed_crown_heart', name: 'Crown of Hearts', category: 'wedding',
+    transformFn: deco('♛♡ ', ' ♡♛', boldScript) },
+  { key: 'wed_vine', name: 'Vine Script', category: 'wedding',
+    transformFn: deco('๑ ', ' ๑', script) },
+
+  // ════════ MODERN LUXURY (NEW) ════════
+  { key: 'lux_black_card', name: 'Black Card', category: 'luxury',
+    transformFn: deco('▰ ', ' ▰', boldItalic) },
+  { key: 'lux_marble', name: 'Marble Frame', category: 'luxury',
+    transformFn: deco('❮ ', ' ❯', boldScript) },
+  { key: 'lux_eclipse', name: 'Eclipse Luxe', category: 'luxury',
+    transformFn: deco('◐ ', ' ◑', boldItalic) },
+  { key: 'lux_underline_gold', name: 'Underline Gold', category: 'luxury',
+    transformFn: (t) => comb(boldItalic(t), '\u0332') },
+
+  // ════════ MODERN INK (NEW) ════════
+  { key: 'ink_quill_dash', name: 'Quill Dash', category: 'classic-ink',
+    transformFn: deco('— ', ' —', fraktur) },
+  { key: 'ink_arcane', name: 'Arcane Mark', category: 'classic-ink',
+    transformFn: deco('☩ ', ' ☩', boldFraktur) },
+  { key: 'ink_parchment', name: 'Parchment', category: 'classic-ink',
+    transformFn: (t) => comb(fraktur(t), '\u0331') },
+  { key: 'ink_wax_seal', name: 'Wax Seal', category: 'classic-ink',
+    transformFn: deco('⊛ ', ' ⊛', boldFraktur) },
 ];
 
 // ─── Grouped Export ───
