@@ -7,6 +7,9 @@ const HeroSection = () => {
           <span className="gold-gradient-text gold-underline">Calligraphy</span>
           {' '}Fonts
         </h1>
+        <p className="mt-3 text-sm md:text-base text-muted-foreground max-w-2xl mx-auto leading-relaxed">
+          Generate 100+ stylish Unicode fonts, elegant calligraphy, and signature styles — copy & paste anywhere or download high-resolution PNGs in one click.
+        </p>
       </div>
     </section>
   );
