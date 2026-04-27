@@ -105,6 +105,9 @@ const InstagramFonts = () => {
           <h1 className="font-heading text-2xl font-bold text-foreground md:text-3xl text-center mb-6">
             <span className="gold-gradient-text">Instagram</span> Fonts
           </h1>
+          <p className="text-center text-sm md:text-base text-muted-foreground max-w-2xl mx-auto -mt-3 mb-6 leading-relaxed">
+            Transform your bio, captions, and stories with 200+ aesthetic Unicode fonts — instant live preview, customizable size & color, and one-tap copy that works on every device.
+          </p>
           <div className="card-premium max-w-6xl p-4 md:p-8 py-[15px] px-[15px] rounded-md mx-auto border-2">
             <div className="relative">
               <textarea
