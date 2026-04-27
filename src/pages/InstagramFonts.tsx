@@ -1,7 +1,7 @@
 import { useState, useCallback, useEffect } from 'react';
-import { RotateCcw, Check, Copy, ArrowLeft, Sun, Moon, Palette } from 'lucide-react';
+import { RotateCcw, Check, Copy, Sun, Moon, Palette } from 'lucide-react';
 import { instagramCategories } from '@/lib/instagramFonts';
-import { Link, useLocation } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
 import Header from '@/components/Header';
 import SiteFooter from '@/components/SiteFooter';
 import { Slider } from '@/components/ui/slider';
@@ -97,15 +97,10 @@ const InstagramFonts = () => {
       <Header />
       <main>
         <section className="section-container pt-6 pb-16">
-          <div className="flex items-center gap-3 mb-6">
-            <Link to="/" className="btn-navy gap-2 text-xs px-3 py-2">
-              <ArrowLeft className="h-3.5 w-3.5" /> Back
-            </Link>
-          </div>
-          <h1 className="font-heading text-2xl font-bold text-foreground md:text-3xl text-center mb-6">
+          <h1 className="font-heading text-4xl font-bold text-foreground md:text-5xl lg:text-6xl text-center mb-6 leading-tight tracking-tight">
             <span className="gold-gradient-text">Instagram</span> Fonts
           </h1>
-          <p className="text-center text-sm md:text-base text-muted-foreground max-w-2xl mx-auto -mt-3 mb-6 leading-relaxed">
+          <p className="text-center text-sm md:text-base text-muted-foreground max-w-2xl mx-auto mb-8 leading-relaxed">
             Transform your bio, captions, and stories with 200+ aesthetic Unicode fonts — instant live preview, customizable size & color, and one-tap copy that works on every device.
           </p>
           <div className="card-premium max-w-6xl p-4 md:p-8 py-[15px] px-[15px] rounded-md mx-auto border-2">

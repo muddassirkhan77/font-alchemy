@@ -5,7 +5,7 @@ import { useNavigate } from 'react-router-dom';
 import logo from '@/assets/logo.png';
 
 const navLinks = [
-{ label: 'Home', href: '#hero' },
+{ label: 'Home', href: '/', isRoute: true },
 { label: 'Signature Generator', href: '/signature-generator', isRoute: true },
 { label: 'Tips', href: '#tips' },
 { label: 'Premium', href: '#premium' },
@@ -112,14 +112,23 @@ const Header = () => {
     <header className="sticky top-0 z-50 border-b border-border bg-card/80 backdrop-blur-md">
       <div className="section-container flex items-center justify-between py-1.5">
         {/* Brand */}
-        <a href="#hero" className="flex items-center gap-0.5">
+        <a
+          href="/"
+          onClick={(e) => { e.preventDefault(); navigate('/'); }}
+          className="flex items-center gap-0.5"
+        >
           <img src={logo} alt="FontiFy Logo" className="h-14 w-auto" style={{ filter: 'contrast(1.3)' }} />
           <span className="font-extrabold gold-gradient-text tracking-tight -ml-1 mx-0 text-3xl font-serif text-left">FontiFy</span>
         </a>
 
         {/* Desktop nav */}
         <nav className="hidden items-center gap-4 md:flex" aria-label="Main navigation">
-          <a href="#hero" className="text-sm font-medium text-muted-foreground transition-colors hover:text-foreground">Home</a>
+          <button
+            onClick={() => navigate('/')}
+            className="text-sm font-medium text-muted-foreground transition-colors hover:text-foreground"
+          >
+            Home
+          </button>
           <button
             onClick={() => navigate('/signature-generator')}
             className="text-sm font-medium text-muted-foreground transition-colors hover:text-foreground">
