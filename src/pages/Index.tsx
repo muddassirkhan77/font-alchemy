@@ -7,6 +7,7 @@ import WebFontPreview from '@/components/WebFontPreview';
 
 import PremiumFeatures from '@/components/PremiumFeatures';
 import CalligraphyTips from '@/components/CalligraphyTips';
+import CalligraphySEOContent from '@/components/CalligraphySEOContent';
 import SiteFooter from '@/components/SiteFooter';
 
 const Index = () => {
@@ -21,7 +22,7 @@ const Index = () => {
         
         <PremiumFeatures />
         <CalligraphyTips />
-        
+        <CalligraphySEOContent />
       </main>
       <SiteFooter />
     </div>
