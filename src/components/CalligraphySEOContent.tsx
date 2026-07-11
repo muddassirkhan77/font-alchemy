@@ -141,7 +141,7 @@ const CalligraphySEOContent = () => {
               <div className="h-12 w-12 rounded-xl flex items-center justify-center font-bold text-xl text-background mb-4" style={{ background: 'linear-gradient(135deg, #D4AF37, #B8941E)' }}>
                 {s.n}
               </div>
-              <h3 className="font-heading text-xl font-bold text-foreground mb-2">{s.title}</h3>
+              <h3 className="font-heading text-xl font-bold text-white mb-2">{s.title}</h3>
               <p className="text-sm leading-relaxed text-[hsl(0_0%_92%)]">{s.body}</p>
             </div>
           ))}
