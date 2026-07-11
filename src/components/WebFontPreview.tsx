@@ -80,6 +80,8 @@ const WebFontPreview = () => {
     ? webFontCategories
     : webFontCategories.filter(c => c.id === filter);
 
+  const previewBg = bgMode === 'dark' ? '#1A1A2E' : '#F5F5F5';
+
   const renderFontCard = (font: WebFont) => {
     const isArabic = font.language === 'ar';
     const displayText = text.length > 0 ? text : (isArabic ? ARABIC_TEXT : DEFAULT_TEXT);
