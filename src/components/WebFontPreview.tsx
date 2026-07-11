@@ -124,7 +124,7 @@ const WebFontPreview = () => {
         >
           <p
             className="leading-relaxed break-all text-center line-clamp-2 w-full"
-            style={{ fontFamily: font.family, color: textColor, fontSize: `${fontSize}px` }}
+            style={{ fontFamily: font.family, color: previewTextColor, fontSize: `${fontSize}px` }}
           >
             {displayText}
           </p>
