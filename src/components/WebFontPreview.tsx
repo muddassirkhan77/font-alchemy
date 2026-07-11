@@ -86,6 +86,7 @@ const WebFontPreview = () => {
     const isArabic = font.language === 'ar';
     const displayText = text.length > 0 ? text : (isArabic ? ARABIC_TEXT : DEFAULT_TEXT);
     const isDownloading = downloadingId === font.id;
+    const previewTextColor = bgMode === 'light' ? '#000000' : textColor;
 
     return (
       <div key={font.id} className="card-premium rounded-2xl overflow-hidden transition-all duration-400">
@@ -123,7 +124,7 @@ const WebFontPreview = () => {
         >
           <p
             className="leading-relaxed break-all text-center line-clamp-2 w-full"
-            style={{ fontFamily: font.family, color: textColor, fontSize: `${fontSize}px` }}
+            style={{ fontFamily: font.family, color: previewTextColor, fontSize: `${fontSize}px` }}
           >
             {displayText}
           </p>
