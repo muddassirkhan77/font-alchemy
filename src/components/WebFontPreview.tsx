@@ -7,6 +7,19 @@ import { toast } from 'sonner';
 const DEFAULT_TEXT = 'Beautiful Calligraphy';
 const ARABIC_TEXT = 'خطاطة جميلة';
 
+const COLOR_PRESETS = [
+  { label: 'White', value: '#EBEBEB' },
+  { label: 'Gold', value: '#D4A843' },
+  { label: 'Cyan', value: '#00D4FF' },
+  { label: 'Lime', value: '#A3E635' },
+  { label: 'Pink', value: '#F472B6' },
+  { label: 'Orange', value: '#FB923C' },
+  { label: 'Red', value: '#EF4444' },
+  { label: 'Violet', value: '#A78BFA' },
+];
+
+type BgMode = 'dark' | 'light';
+
 const WebFontPreview = () => {
   const [text, setText] = useState('');
   const [filter, setFilter] = useState<string>('all');
