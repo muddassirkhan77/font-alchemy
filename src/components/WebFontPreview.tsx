@@ -1,6 +1,7 @@
 import { useState, useCallback, useEffect } from 'react';
-import { Download, Flame, RotateCcw, Loader2, Sparkles } from 'lucide-react';
+import { Download, Flame, RotateCcw, Loader2, Sparkles, Sun, Moon, Palette } from 'lucide-react';
 import { webFontCategories, googleFontsUrl, type WebFont } from '@/lib/webFonts';
+import { Slider } from '@/components/ui/slider';
 import { toast } from 'sonner';
 
 const DEFAULT_TEXT = 'Beautiful Calligraphy';
