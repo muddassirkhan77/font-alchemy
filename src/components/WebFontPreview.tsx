@@ -1,15 +1,32 @@
 import { useState, useCallback, useEffect } from 'react';
-import { Download, Flame, RotateCcw, Loader2, Sparkles } from 'lucide-react';
+import { Download, Flame, RotateCcw, Loader2, Sparkles, Sun, Moon, Palette } from 'lucide-react';
 import { webFontCategories, googleFontsUrl, type WebFont } from '@/lib/webFonts';
+import { Slider } from '@/components/ui/slider';
 import { toast } from 'sonner';
 
 const DEFAULT_TEXT = 'Beautiful Calligraphy';
 const ARABIC_TEXT = 'خطاطة جميلة';
 
+const COLOR_PRESETS = [
+  { label: 'White', value: '#EBEBEB' },
+  { label: 'Gold', value: '#D4A843' },
+  { label: 'Cyan', value: '#00D4FF' },
+  { label: 'Lime', value: '#A3E635' },
+  { label: 'Pink', value: '#F472B6' },
+  { label: 'Orange', value: '#FB923C' },
+  { label: 'Red', value: '#EF4444' },
+  { label: 'Violet', value: '#A78BFA' },
+];
+
+type BgMode = 'dark' | 'light';
+
 const WebFontPreview = () => {
   const [text, setText] = useState('');
   const [filter, setFilter] = useState<string>('all');
   const [downloadingId, setDownloadingId] = useState<string | null>(null);
+  const [textColor, setTextColor] = useState('#EBEBEB');
+  const [fontSize, setFontSize] = useState(24);
+  const [bgMode, setBgMode] = useState<BgMode>('dark');
 
   useEffect(() => {
     if (!document.querySelector(`link[href*="Great+Vibes"]`)) {
@@ -63,6 +80,8 @@ const WebFontPreview = () => {
     ? webFontCategories
     : webFontCategories.filter(c => c.id === filter);
 
+  const previewBg = bgMode === 'dark' ? '#1A1A2E' : '#F5F5F5';
+
   const renderFontCard = (font: WebFont) => {
     const isArabic = font.language === 'ar';
     const displayText = text.length > 0 ? text : (isArabic ? ARABIC_TEXT : DEFAULT_TEXT);
@@ -99,12 +118,12 @@ const WebFontPreview = () => {
         </div>
         <div
           className="rounded-b-xl h-28 flex items-center justify-center overflow-hidden px-5"
-          style={{ background: '#1A1A2E' }}
+          style={{ background: previewBg }}
           dir={isArabic ? 'rtl' : 'ltr'}
         >
           <p
-            className="text-2xl leading-relaxed break-all text-center line-clamp-2 w-full"
-            style={{ fontFamily: font.family, color: 'hsl(0 0% 92%)' }}
+            className="leading-relaxed break-all text-center line-clamp-2 w-full"
+            style={{ fontFamily: font.family, color: textColor, fontSize: `${fontSize}px` }}
           >
             {displayText}
           </p>
@@ -168,6 +187,70 @@ const WebFontPreview = () => {
             <span className="text-xs text-muted-foreground">{text.length}/200</span>
             <button onClick={() => setText('')} className="btn-navy gap-2 text-xs px-4 py-2">
               <RotateCcw className="h-3.5 w-3.5" /> Reset
+            </button>
+          </div>
+        </div>
+
+        {/* Customization Controls - single thin row */}
+        <div
+          className="mt-4 rounded-xl px-3 py-2 flex items-center gap-3 flex-wrap"
+          style={{ background: '#1D2F46' }}
+        >
+          <div className="flex items-center gap-1.5 text-[10px] font-bold uppercase tracking-wider text-white/70">
+            <Palette className="h-3 w-3 text-accent" /> Style
+          </div>
+
+          {/* Color swatches inline */}
+          <div className="flex items-center gap-1">
+            {COLOR_PRESETS.map(c => (
+              <button
+                key={c.value}
+                onClick={() => setTextColor(c.value)}
+                className={`h-5 w-5 rounded-full border-2 transition-all duration-200 ${
+                  textColor === c.value ? 'border-accent scale-110' : 'border-white/20'
+                }`}
+                style={{ background: c.value }}
+                title={c.label}
+              />
+            ))}
+            <input
+              type="color"
+              value={textColor}
+              onChange={e => setTextColor(e.target.value)}
+              className="h-5 w-5 rounded cursor-pointer border border-white/20 bg-transparent p-0"
+              title="Custom color"
+            />
+          </div>
+
+          {/* Font Size */}
+          <div className="flex items-center gap-2 min-w-[140px] flex-1">
+            <span className="text-[10px] text-white/60 whitespace-nowrap">Size</span>
+            <Slider
+              value={[fontSize]}
+              onValueChange={v => setFontSize(v[0])}
+              min={14}
+              max={48}
+              step={1}
+              className="flex-1"
+            />
+            <span className="text-[10px] text-white/70 tabular-nums w-8 text-right">{fontSize}px</span>
+          </div>
+
+          {/* Bg toggle */}
+          <div className="flex items-center gap-1">
+            <button
+              onClick={() => setBgMode('dark')}
+              className={`rounded p-1.5 transition-all ${bgMode === 'dark' ? 'bg-accent' : 'bg-white/10'}`}
+              title="Dark background"
+            >
+              <Moon className="h-3.5 w-3.5 text-white" />
+            </button>
+            <button
+              onClick={() => setBgMode('light')}
+              className={`rounded p-1.5 transition-all ${bgMode === 'light' ? 'bg-accent' : 'bg-white/10'}`}
+              title="Light background"
+            >
+              <Sun className="h-3.5 w-3.5 text-white" />
             </button>
           </div>
         </div>
