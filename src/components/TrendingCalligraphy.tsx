@@ -57,14 +57,14 @@ const TrendingCalligraphy = () => {
           const isDownloading = downloadingKey === `trending-download-${style.key}`;
           return (
             <div key={style.key} className="card-premium">
-              <div className="flex items-center justify-between px-4 py-3" style={{ background: '#1D2F46' }}>
-                <p className="text-sm font-bold uppercase tracking-wider text-white">
+              <div className="flex items-center justify-between px-3 py-2" style={{ background: '#1D2F46' }}>
+                <p className="max-w-[160px] truncate text-sm font-bold uppercase tracking-wider text-white">
                   {style.name}
                 </p>
-                <div className="flex items-center gap-2">
+                <div className="flex items-center gap-1.5">
                   <button
                     onClick={() => handleCopy(transformed, `trending-${style.key}`)}
-                    className={`inline-flex items-center gap-2 rounded-lg px-3 py-1.5 text-xs font-semibold transition-all duration-200 ${
+                    className={`inline-flex items-center gap-1.5 rounded-lg px-2 py-1 text-xs font-semibold transition-all duration-200 ${
                       isCopied ? 'btn-copy-success' : 'btn-navy'
                     }`}
                   >
@@ -73,7 +73,7 @@ const TrendingCalligraphy = () => {
                   <button
                     onClick={() => handleDownload(transformed, style.name, `trending-download-${style.key}`)}
                     disabled={isDownloading}
-                    className={`inline-flex items-center gap-2 rounded-lg px-3 py-1.5 text-xs font-semibold transition-all duration-200 btn-navy ${isDownloading ? 'opacity-60 cursor-wait' : ''}`}
+                    className={`inline-flex items-center gap-1.5 rounded-lg px-2 py-1 text-xs font-semibold transition-all duration-200 btn-navy ${isDownloading ? 'opacity-60 cursor-wait' : ''}`}
                   >
                     {isDownloading ? <><Loader2 className="h-3.5 w-3.5 animate-spin" /> PNG</> : <><Download className="h-3.5 w-3.5" /> PNG</>}
                   </button>
