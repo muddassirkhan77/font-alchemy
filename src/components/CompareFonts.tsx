@@ -90,20 +90,20 @@ const CompareFonts = () => {
           const styleName = style?.name || 'Calligraphy';
           return (
             <div key={i} className="card-premium">
-              <div className="flex items-center justify-between gap-2 px-4 py-3" style={{ background: '#1D2F46' }}>
+              <div className="flex items-center justify-between gap-2 px-3 py-2" style={{ background: '#1D2F46' }}>
                 <select
                   value={selections[i]}
                   onChange={e => updateSelection(i, e.target.value)}
-                  className="flex-1 rounded-lg border border-border/30 bg-transparent px-3 py-2 text-sm text-white focus:outline-none focus:ring-2 focus:ring-accent/30"
+                  className="max-w-[160px] truncate rounded-lg border border-border/30 bg-transparent px-2 py-1.5 text-sm text-white focus:outline-none focus:ring-2 focus:ring-accent/30"
                 >
                   {allStyles.map(s => (
                     <option key={s.key} value={s.key} className="bg-[#1a1a2e] text-white">{s.name}</option>
                   ))}
                 </select>
-                <div className="flex items-center gap-2">
+                <div className="flex items-center gap-1.5">
                   <button
                     onClick={() => handleCopy(previews[i], `compare-${i}`)}
-                    className={`inline-flex items-center gap-2 rounded-lg px-3 py-1.5 text-xs font-semibold transition-all duration-200 ${
+                    className={`inline-flex items-center gap-1.5 rounded-lg px-2 py-1 text-xs font-semibold transition-all duration-200 ${
                       isCopied ? 'btn-copy-success' : 'btn-navy'
                     }`}
                   >
@@ -112,7 +112,7 @@ const CompareFonts = () => {
                   <button
                     onClick={() => handleDownload(previews[i], styleName, `compare-download-${i}`)}
                     disabled={isDownloading}
-                    className={`inline-flex items-center gap-2 rounded-lg px-3 py-1.5 text-xs font-semibold transition-all duration-200 btn-navy ${isDownloading ? 'opacity-60 cursor-wait' : ''}`}
+                    className={`inline-flex items-center gap-1.5 rounded-lg px-2 py-1 text-xs font-semibold transition-all duration-200 btn-navy ${isDownloading ? 'opacity-60 cursor-wait' : ''}`}
                   >
                     {isDownloading ? <><Loader2 className="h-3.5 w-3.5 animate-spin" /> PNG</> : <><Download className="h-3.5 w-3.5" /> PNG</>}
                   </button>
