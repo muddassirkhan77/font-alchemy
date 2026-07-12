@@ -8,7 +8,7 @@ const navLinks = [
  { label: 'Home', href: '/', isRoute: true },
  { label: 'Signature Generator', href: '/signature-generator', isRoute: true },
  { label: 'Tips', href: '#tips' },
- { label: 'Contact', href: '#footer' }];
+ { label: 'Contact Us', href: '#footer' }];
 
 
 const categoryNames = instagramCategories.map((c) => c.name);
@@ -209,7 +209,7 @@ const Header = () => {
             }
           </div>
           <a href="#tips" className="text-sm font-medium text-muted-foreground transition-colors hover:text-foreground">Tips</a>
-          <a href="#footer" className="text-sm font-medium text-muted-foreground transition-colors hover:text-foreground">Contact</a>
+          <a href="#footer" className="text-sm font-medium text-muted-foreground transition-colors hover:text-foreground">Contact Us</a>
         </nav>
 
         {/* Mobile toggle */}
