@@ -1,15 +1,14 @@
 import { useState, useCallback, useRef, useEffect } from 'react';
-import { Menu, X, Crown, ChevronDown, ChevronUp } from 'lucide-react';
+import { Menu, X, ChevronDown, ChevronUp } from 'lucide-react';
 import { instagramCategories } from '@/lib/instagramFonts';
 import { useNavigate } from 'react-router-dom';
 import logo from '@/assets/logo.png';
 
 const navLinks = [
-{ label: 'Home', href: '/', isRoute: true },
-{ label: 'Signature Generator', href: '/signature-generator', isRoute: true },
-{ label: 'Tips', href: '#tips' },
-{ label: 'Premium', href: '#premium' },
-{ label: 'Contact', href: '#footer' }];
+ { label: 'Home', href: '/', isRoute: true },
+ { label: 'Signature Generator', href: '/signature-generator', isRoute: true },
+ { label: 'Tips', href: '#tips' },
+ { label: 'Contact', href: '#footer' }];
 
 
 const categoryNames = instagramCategories.map((c) => c.name);
