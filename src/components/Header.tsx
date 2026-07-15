@@ -290,10 +290,6 @@ const Header = () => {
               </div>
             </div>
           </div>
-
-          <a href="#premium" className="btn-gold mt-2 w-fit gap-2 text-sm" onClick={() => setIsOpen(false)}>
-            <Crown className="h-4 w-4" /> Unlock Premium
-          </a>
         </nav>
       </div>
     </header>);
