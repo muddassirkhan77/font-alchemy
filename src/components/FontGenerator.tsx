@@ -97,6 +97,70 @@ const FontGenerator = () => {
           </div>
         </div>
 
+        {/* Customization Controls - single thin row */}
+        <div
+          className="mt-4 rounded-xl px-3 py-2 flex items-center gap-3 flex-wrap"
+          style={{ background: '#1D2F46' }}
+        >
+          <div className="flex items-center gap-1.5 text-[10px] font-bold uppercase tracking-wider text-white/70">
+            <Palette className="h-3 w-3 text-accent" /> Style
+          </div>
+
+          {/* Color swatches inline */}
+          <div className="flex items-center gap-1">
+            {COLOR_PRESETS.map(c => (
+              <button
+                key={c.value}
+                onClick={() => setTextColor(c.value)}
+                className={`h-5 w-5 rounded-full border-2 transition-all duration-200 ${
+                  textColor === c.value ? 'border-accent scale-110' : 'border-white/20'
+                }`}
+                style={{ background: c.value }}
+                title={c.label}
+              />
+            ))}
+            <input
+              type="color"
+              value={textColor}
+              onChange={e => setTextColor(e.target.value)}
+              className="h-5 w-5 rounded cursor-pointer border border-white/20 bg-transparent p-0"
+              title="Custom color"
+            />
+          </div>
+
+          {/* Font Size */}
+          <div className="flex items-center gap-2 min-w-[140px] flex-1">
+            <span className="text-[10px] text-white/60 whitespace-nowrap">Size</span>
+            <Slider
+              value={[fontSize]}
+              onValueChange={v => setFontSize(v[0])}
+              min={14}
+              max={48}
+              step={1}
+              className="flex-1"
+            />
+            <span className="text-[10px] text-white/70 tabular-nums w-8 text-right">{fontSize}px</span>
+          </div>
+
+          {/* Bg toggle */}
+          <div className="flex items-center gap-1">
+            <button
+              onClick={() => setBgMode('dark')}
+              className={`rounded p-1.5 transition-all ${bgMode === 'dark' ? 'bg-accent' : 'bg-white/10'}`}
+              title="Dark background"
+            >
+              <Moon className="h-3.5 w-3.5 text-white" />
+            </button>
+            <button
+              onClick={() => setBgMode('light')}
+              className={`rounded p-1.5 transition-all ${bgMode === 'light' ? 'bg-accent' : 'bg-white/10'}`}
+              title="Light background"
+            >
+              <Sun className="h-3.5 w-3.5 text-white" />
+            </button>
+          </div>
+        </div>
+
         {/* Calligraphy Results */}
         <div className="mt-8 space-y-8">
           {calligraphyCategories.map((cat) =>
