@@ -19,7 +19,6 @@ const Index = () => {
         <CompareFonts />
         <TrendingCalligraphy />
         
-        <PremiumFeatures />
         <CalligraphyTips />
         <CalligraphySEOContent />
       </main>
