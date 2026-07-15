@@ -1,14 +1,32 @@
 import { useState, useCallback } from 'react';
-import { RotateCcw, Check, Copy } from 'lucide-react';
+import { RotateCcw, Check, Copy, Sun, Moon, Palette } from 'lucide-react';
 import { calligraphyCategories } from '@/lib/calligraphyFonts';
+import { Slider } from '@/components/ui/slider';
 
 const DEFAULT_PREVIEW = 'FontiFy Preview';
+
+const COLOR_PRESETS = [
+  { label: 'White', value: '#EBEBEB' },
+  { label: 'Gold', value: '#D4A843' },
+  { label: 'Cyan', value: '#00D4FF' },
+  { label: 'Lime', value: '#A3E635' },
+  { label: 'Pink', value: '#F472B6' },
+  { label: 'Orange', value: '#FB923C' },
+  { label: 'Red', value: '#EF4444' },
+  { label: 'Violet', value: '#A78BFA' },
+];
+
+type BgMode = 'dark' | 'light';
 
 const FontGenerator = () => {
   const [text, setText] = useState('');
   const [copiedKey, setCopiedKey] = useState<string | null>(null);
+  const [textColor, setTextColor] = useState('#EBEBEB');
+  const [fontSize, setFontSize] = useState(24);
+  const [bgMode, setBgMode] = useState<BgMode>('dark');
 
   const displayText = text.length > 0 ? text : DEFAULT_PREVIEW;
+  const previewBg = bgMode === 'dark' ? '#1A1A2E' : '#F5F5F5';
 
   const handleCopy = useCallback(async (transformed: string, key: string) => {
     try {
@@ -47,8 +65,8 @@ const FontGenerator = () => {
             }
           </button>
         </div>
-        <div className="rounded-xl h-28 flex items-center justify-center overflow-hidden px-5" style={{ background: '#1A1A2E' }}>
-          <p className="text-2xl leading-relaxed break-all text-center line-clamp-2 w-full" style={{ color: 'hsl(0 0% 92%)' }}>
+        <div className="rounded-xl h-28 flex items-center justify-center overflow-hidden px-5 transition-colors duration-300" style={{ background: previewBg }}>
+          <p className="leading-relaxed break-all text-center line-clamp-2 w-full" style={{ color: textColor, fontSize: `${fontSize}px` }}>
             {transformed}
           </p>
         </div>
@@ -75,6 +93,70 @@ const FontGenerator = () => {
               onClick={() => setText('')}
               className="btn-navy gap-2 text-xs px-4 py-2">
               <RotateCcw className="h-3.5 w-3.5" /> Reset
+            </button>
+          </div>
+        </div>
+
+        {/* Customization Controls - single thin row */}
+        <div
+          className="mt-4 rounded-xl px-3 py-2 flex items-center gap-3 flex-wrap"
+          style={{ background: '#1D2F46' }}
+        >
+          <div className="flex items-center gap-1.5 text-[10px] font-bold uppercase tracking-wider text-white/70">
+            <Palette className="h-3 w-3 text-accent" /> Style
+          </div>
+
+          {/* Color swatches inline */}
+          <div className="flex items-center gap-1">
+            {COLOR_PRESETS.map(c => (
+              <button
+                key={c.value}
+                onClick={() => setTextColor(c.value)}
+                className={`h-5 w-5 rounded-full border-2 transition-all duration-200 ${
+                  textColor === c.value ? 'border-accent scale-110' : 'border-white/20'
+                }`}
+                style={{ background: c.value }}
+                title={c.label}
+              />
+            ))}
+            <input
+              type="color"
+              value={textColor}
+              onChange={e => setTextColor(e.target.value)}
+              className="h-5 w-5 rounded cursor-pointer border border-white/20 bg-transparent p-0"
+              title="Custom color"
+            />
+          </div>
+
+          {/* Font Size */}
+          <div className="flex items-center gap-2 min-w-[140px] flex-1">
+            <span className="text-[10px] text-white/60 whitespace-nowrap">Size</span>
+            <Slider
+              value={[fontSize]}
+              onValueChange={v => setFontSize(v[0])}
+              min={14}
+              max={48}
+              step={1}
+              className="flex-1"
+            />
+            <span className="text-[10px] text-white/70 tabular-nums w-8 text-right">{fontSize}px</span>
+          </div>
+
+          {/* Bg toggle */}
+          <div className="flex items-center gap-1">
+            <button
+              onClick={() => setBgMode('dark')}
+              className={`rounded p-1.5 transition-all ${bgMode === 'dark' ? 'bg-accent' : 'bg-white/10'}`}
+              title="Dark background"
+            >
+              <Moon className="h-3.5 w-3.5 text-white" />
+            </button>
+            <button
+              onClick={() => setBgMode('light')}
+              className={`rounded p-1.5 transition-all ${bgMode === 'light' ? 'bg-accent' : 'bg-white/10'}`}
+              title="Light background"
+            >
+              <Sun className="h-3.5 w-3.5 text-white" />
             </button>
           </div>
         </div>
