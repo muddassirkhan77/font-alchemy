@@ -117,13 +117,13 @@ const WebFontPreview = () => {
           </button>
         </div>
         <div
-          className="rounded-b-xl h-28 flex items-center justify-center overflow-hidden px-5"
-          style={{ background: '#1A1A2E' }}
+          className="rounded-b-xl h-28 flex items-center justify-center overflow-hidden px-5 transition-colors duration-300"
+          style={{ background: previewBg }}
           dir={isArabic ? 'rtl' : 'ltr'}
         >
           <p
-            className="text-2xl leading-relaxed break-all text-center line-clamp-2 w-full"
-            style={{ fontFamily: font.family, color: 'hsl(0 0% 92%)' }}
+            className="leading-relaxed break-all text-center line-clamp-2 w-full"
+            style={{ fontFamily: font.family, color: textColor, fontSize: `${fontSize}px` }}
           >
             {displayText}
           </p>
