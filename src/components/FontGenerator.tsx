@@ -1,8 +1,22 @@
 import { useState, useCallback } from 'react';
-import { RotateCcw, Check, Copy } from 'lucide-react';
+import { RotateCcw, Check, Copy, Sun, Moon, Palette } from 'lucide-react';
 import { calligraphyCategories } from '@/lib/calligraphyFonts';
+import { Slider } from '@/components/ui/slider';
 
 const DEFAULT_PREVIEW = 'FontiFy Preview';
+
+const COLOR_PRESETS = [
+  { label: 'White', value: '#EBEBEB' },
+  { label: 'Gold', value: '#D4A843' },
+  { label: 'Cyan', value: '#00D4FF' },
+  { label: 'Lime', value: '#A3E635' },
+  { label: 'Pink', value: '#F472B6' },
+  { label: 'Orange', value: '#FB923C' },
+  { label: 'Red', value: '#EF4444' },
+  { label: 'Violet', value: '#A78BFA' },
+];
+
+type BgMode = 'dark' | 'light';
 
 const FontGenerator = () => {
   const [text, setText] = useState('');
