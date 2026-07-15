@@ -21,8 +21,12 @@ type BgMode = 'dark' | 'light';
 const FontGenerator = () => {
   const [text, setText] = useState('');
   const [copiedKey, setCopiedKey] = useState<string | null>(null);
+  const [textColor, setTextColor] = useState('#EBEBEB');
+  const [fontSize, setFontSize] = useState(24);
+  const [bgMode, setBgMode] = useState<BgMode>('dark');
 
   const displayText = text.length > 0 ? text : DEFAULT_PREVIEW;
+  const previewBg = bgMode === 'dark' ? '#1A1A2E' : '#F5F5F5';
 
   const handleCopy = useCallback(async (transformed: string, key: string) => {
     try {
