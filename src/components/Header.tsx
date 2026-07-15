@@ -8,7 +8,6 @@ const navLinks = [
 { label: 'Home', href: '/', isRoute: true },
 { label: 'Signature Generator', href: '/signature-generator', isRoute: true },
 { label: 'Tips', href: '#tips' },
-{ label: 'Premium', href: '#premium' },
 { label: 'Contact', href: '#footer' }];
 
 
