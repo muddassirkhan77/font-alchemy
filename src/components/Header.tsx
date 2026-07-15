@@ -210,11 +210,7 @@ const Header = () => {
             }
           </div>
           <a href="#tips" className="text-sm font-medium text-muted-foreground transition-colors hover:text-foreground">Tips</a>
-          <a href="#premium" className="text-sm font-medium text-muted-foreground transition-colors hover:text-foreground">Premium</a>
           <a href="#footer" className="text-sm font-medium text-muted-foreground transition-colors hover:text-foreground">Contact</a>
-          <a href="#premium" className="btn-gold gap-1 text-[11px] px-2.5 py-1">
-            <Crown className="h-3 w-3" /> Unlock Premium
-          </a>
         </nav>
 
         {/* Mobile toggle */}
