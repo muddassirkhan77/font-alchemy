@@ -1,9 +1,7 @@
 import { useState, useMemo, useCallback } from 'react';
-import { Check, Copy, Download, Loader2 } from 'lucide-react';
-import { toast } from 'sonner';
+import { Check, Copy } from 'lucide-react';
 import { allCalligraphyStyles } from '@/lib/calligraphyFonts';
 import { fontStyles } from '@/lib/unicodeFonts';
-import { downloadPng } from '@/lib/downloadPng';
 
 const DEFAULT_TEXT = 'Compare Me';
 
@@ -18,7 +16,6 @@ const CompareFonts = () => {
   ]);
   const [text, setText] = useState(DEFAULT_TEXT);
   const [copiedKey, setCopiedKey] = useState<string | null>(null);
-  const [downloadingKey, setDownloadingKey] = useState<string | null>(null);
 
   const displayText = text.length > 0 ? text : DEFAULT_TEXT;
 
@@ -50,18 +47,6 @@ const CompareFonts = () => {
     setTimeout(() => setCopiedKey(null), 1500);
   }, []);
 
-  const handleDownload = useCallback(async (transformed: string, styleName: string, key: string) => {
-    setDownloadingKey(key);
-    try {
-      const filename = `${styleName.replace(/\s+/g, '-').toLowerCase()}-calligraphy.png`;
-      await downloadPng(transformed, filename);
-      toast.success(`"${styleName}" downloaded as transparent PNG!`);
-    } catch {
-      toast.error('Failed to generate PNG. Please try again.');
-    }
-    setDownloadingKey(null);
-  }, []);
-
   return (
     <section className="section-container py-8">
       <h2 className="font-heading text-2xl font-bold text-center mb-2 text-foreground md:text-3xl">
@@ -85,41 +70,29 @@ const CompareFonts = () => {
       <div className="mx-auto max-w-6xl grid grid-cols-1 gap-6 md:grid-cols-2 [&>*:last-child]:md:col-span-2 [&>*:last-child]:md:max-w-[calc(50%-0.75rem)] [&>*:last-child]:md:mx-auto">
         {[0, 1, 2].map(i => {
           const isCopied = copiedKey === `compare-${i}`;
-          const isDownloading = downloadingKey === `compare-download-${i}`;
-          const style = allStyles.find(s => s.key === selections[i]);
-          const styleName = style?.name || 'Calligraphy';
           return (
             <div key={i} className="card-premium">
-              <div className="flex items-center justify-between gap-2 px-3 py-2" style={{ background: '#1D2F46' }}>
+              <div className="flex items-center justify-between px-4 py-3" style={{ background: '#1D2F46' }}>
                 <select
-                  value={selections[i]}
-                  onChange={e => updateSelection(i, e.target.value)}
-                  className="max-w-[160px] truncate rounded-lg border border-border/30 bg-transparent px-2 py-1.5 text-sm text-white focus:outline-none focus:ring-2 focus:ring-accent/30"
-                >
-                  {allStyles.map(s => (
-                    <option key={s.key} value={s.key} className="bg-[#1a1a2e] text-white">{s.name}</option>
+                value={selections[i]}
+                onChange={e => updateSelection(i, e.target.value)}
+                 className="flex-1 rounded-lg border border-border/30 bg-transparent px-3 py-2 text-sm text-white focus:outline-none focus:ring-2 focus:ring-accent/30"
+               >
+                 {allStyles.map(s => (
+                   <option key={s.key} value={s.key} className="bg-[#1a1a2e] text-white">{s.name}</option>
                   ))}
-                </select>
-                <div className="flex items-center gap-1.5">
-                  <button
-                    onClick={() => handleCopy(previews[i], `compare-${i}`)}
-                    className={`inline-flex items-center gap-1.5 rounded-lg px-2 py-1 text-xs font-semibold transition-all duration-200 ${
-                      isCopied ? 'btn-copy-success' : 'btn-navy'
-                    }`}
-                  >
-                    {isCopied ? <><Check className="h-3.5 w-3.5" /> Copied</> : <><Copy className="h-3.5 w-3.5" /> Copy</>}
-                  </button>
-                  <button
-                    onClick={() => handleDownload(previews[i], styleName, `compare-download-${i}`)}
-                    disabled={isDownloading}
-                    className={`inline-flex items-center gap-1.5 rounded-lg px-2 py-1 text-xs font-semibold transition-all duration-200 btn-navy ${isDownloading ? 'opacity-60 cursor-wait' : ''}`}
-                  >
-                    {isDownloading ? <><Loader2 className="h-3.5 w-3.5 animate-spin" /> PNG</> : <><Download className="h-3.5 w-3.5" /> PNG</>}
-                  </button>
-                </div>
-              </div>
-              <div className="rounded-b-xl h-28 flex items-center justify-center overflow-hidden px-5" style={{ background: '#1A1A2E', color: 'hsl(0 0% 92%)' }}>
-                <p className="text-2xl leading-relaxed break-all text-center line-clamp-2 w-full">{previews[i]}</p>
+               </select>
+                 <button
+                   onClick={() => handleCopy(previews[i], `compare-${i}`)}
+                   className={`inline-flex items-center gap-2 rounded-lg px-3 py-1.5 text-xs font-semibold transition-all duration-200 ml-2 ${
+                     isCopied ? 'btn-copy-success' : 'btn-navy'
+                   }`}
+                 >
+                   {isCopied ? <><Check className="h-3.5 w-3.5" /> Copied</> : <><Copy className="h-3.5 w-3.5" /> Copy</>}
+                 </button>
+               </div>
+               <div className="rounded-b-xl h-28 flex items-center justify-center overflow-hidden px-5" style={{ background: '#1A1A2E', color: 'hsl(0 0% 92%)' }}>
+                 <p className="text-2xl leading-relaxed break-all text-center line-clamp-2 w-full">{previews[i]}</p>
               </div>
             </div>
           );

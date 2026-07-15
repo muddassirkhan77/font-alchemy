@@ -141,8 +141,8 @@ const CalligraphySEOContent = () => {
               <div className="h-12 w-12 rounded-xl flex items-center justify-center font-bold text-xl text-background mb-4" style={{ background: 'linear-gradient(135deg, #D4AF37, #B8941E)' }}>
                 {s.n}
               </div>
-              <h3 className="font-heading text-xl font-bold text-white mb-2">{s.title}</h3>
-              <p className="text-sm leading-relaxed text-[hsl(0_0%_92%)]">{s.body}</p>
+              <h3 className="font-heading text-xl font-bold text-foreground mb-2">{s.title}</h3>
+              <p className="text-sm text-muted-foreground leading-relaxed">{s.body}</p>
             </div>
           ))}
         </div>
@@ -177,7 +177,7 @@ const CalligraphySEOContent = () => {
             <div key={f.title} className="card-premium rounded-2xl p-6 border-2 hover:-translate-y-1 transition-transform duration-300">
               <div className="text-3xl mb-3">{f.icon}</div>
               <h3 className="font-heading text-lg font-bold text-foreground mb-2">{f.title}</h3>
-              <p className="text-sm leading-relaxed text-[hsl(0_0%_92%)]">{f.body}</p>
+              <p className="text-sm text-muted-foreground leading-relaxed">{f.body}</p>
             </div>
           ))}
         </div>
@@ -196,7 +196,7 @@ const CalligraphySEOContent = () => {
             <div key={s.title} className="card-premium rounded-2xl p-6 border-2 hover:-translate-y-1 transition-transform duration-300">
               <div className="text-3xl mb-3">{s.icon}</div>
               <h3 className="font-heading text-lg font-bold text-foreground mb-2">{s.title}</h3>
-              <p className="text-sm leading-relaxed text-[hsl(0_0%_92%)]">{s.body}</p>
+              <p className="text-sm text-muted-foreground leading-relaxed">{s.body}</p>
             </div>
           ))}
         </div>
@@ -215,7 +215,7 @@ const CalligraphySEOContent = () => {
             <div key={p.name} className="card-premium rounded-xl p-4 border-2 text-center hover:-translate-y-1 transition-transform duration-300">
               <div className="text-3xl mb-2">{p.icon}</div>
               <h3 className="font-bold text-foreground text-sm mb-1">{p.name}</h3>
-              <p className="text-xs leading-snug text-[hsl(0_0%_92%)]">{p.body}</p>
+              <p className="text-xs text-muted-foreground leading-snug">{p.body}</p>
             </div>
           ))}
         </div>
@@ -234,7 +234,7 @@ const CalligraphySEOContent = () => {
             <div key={u.title} className="card-premium rounded-2xl p-6 border-2 hover:-translate-y-1 transition-transform duration-300">
               <div className="text-3xl mb-3">{u.icon}</div>
               <h3 className="font-heading text-lg font-bold text-foreground mb-2">{u.title}</h3>
-              <p className="text-sm leading-relaxed text-[hsl(0_0%_92%)]">{u.body}</p>
+              <p className="text-sm text-muted-foreground leading-relaxed">{u.body}</p>
             </div>
           ))}
         </div>
@@ -259,7 +259,7 @@ const CalligraphySEOContent = () => {
                   <ChevronDown className={`h-5 w-5 text-accent shrink-0 transition-transform duration-200 ${open ? 'rotate-180' : ''}`} />
                 </button>
                 <div className={`overflow-hidden transition-all duration-300 ${open ? 'max-h-96' : 'max-h-0'}`}>
-                  <p className="px-5 pb-5 text-sm leading-relaxed text-[hsl(0_0%_92%)]">{f.a}</p>
+                  <p className="px-5 pb-5 text-sm text-muted-foreground leading-relaxed">{f.a}</p>
                 </div>
               </div>
             );
