@@ -24,6 +24,11 @@ const WebFontPreview = () => {
   const [text, setText] = useState('');
   const [filter, setFilter] = useState<string>('all');
   const [downloadingId, setDownloadingId] = useState<string | null>(null);
+  const [textColor, setTextColor] = useState('#EBEBEB');
+  const [fontSize, setFontSize] = useState(24);
+  const [bgMode, setBgMode] = useState<BgMode>('dark');
+
+  const previewBg = bgMode === 'dark' ? '#1A1A2E' : '#F5F5F5';
 
   useEffect(() => {
     if (!document.querySelector(`link[href*="Great+Vibes"]`)) {
