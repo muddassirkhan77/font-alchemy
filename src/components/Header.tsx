@@ -1,5 +1,5 @@
 import { useState, useCallback, useRef, useEffect } from 'react';
-import { Menu, X, Crown, ChevronDown, ChevronUp } from 'lucide-react';
+import { Menu, X, ChevronDown, ChevronUp } from 'lucide-react';
 import { instagramCategories } from '@/lib/instagramFonts';
 import { useNavigate } from 'react-router-dom';
 import logo from '@/assets/logo.png';
@@ -8,7 +8,6 @@ const navLinks = [
 { label: 'Home', href: '/', isRoute: true },
 { label: 'Signature Generator', href: '/signature-generator', isRoute: true },
 { label: 'Tips', href: '#tips' },
-{ label: 'Premium', href: '#premium' },
 { label: 'Contact', href: '#footer' }];
 
 
@@ -211,11 +210,7 @@ const Header = () => {
             }
           </div>
           <a href="#tips" className="text-sm font-medium text-muted-foreground transition-colors hover:text-foreground">Tips</a>
-          <a href="#premium" className="text-sm font-medium text-muted-foreground transition-colors hover:text-foreground">Premium</a>
           <a href="#footer" className="text-sm font-medium text-muted-foreground transition-colors hover:text-foreground">Contact</a>
-          <a href="#premium" className="btn-gold gap-1 text-[11px] px-2.5 py-1">
-            <Crown className="h-3 w-3" /> Unlock Premium
-          </a>
         </nav>
 
         {/* Mobile toggle */}
@@ -295,10 +290,6 @@ const Header = () => {
               </div>
             </div>
           </div>
-
-          <a href="#premium" className="btn-gold mt-2 w-fit gap-2 text-sm" onClick={() => setIsOpen(false)}>
-            <Crown className="h-4 w-4" /> Unlock Premium
-          </a>
         </nav>
       </div>
     </header>);
