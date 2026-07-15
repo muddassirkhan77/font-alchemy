@@ -5,7 +5,6 @@ import CompareFonts from '@/components/CompareFonts';
 import TrendingCalligraphy from '@/components/TrendingCalligraphy';
 import WebFontPreview from '@/components/WebFontPreview';
 
-import PremiumFeatures from '@/components/PremiumFeatures';
 import CalligraphyTips from '@/components/CalligraphyTips';
 import CalligraphySEOContent from '@/components/CalligraphySEOContent';
 import SiteFooter from '@/components/SiteFooter';
