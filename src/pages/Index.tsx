@@ -1,11 +1,29 @@
 import Header from '@/components/Header';
+import HeroSection from '@/components/HeroSection';
+
+import CompareFonts from '@/components/CompareFonts';
+import TrendingCalligraphy from '@/components/TrendingCalligraphy';
+import WebFontPreview from '@/components/WebFontPreview';
+
+import PremiumFeatures from '@/components/PremiumFeatures';
+import CalligraphyTips from '@/components/CalligraphyTips';
+import CalligraphySEOContent from '@/components/CalligraphySEOContent';
 import SiteFooter from '@/components/SiteFooter';
 
 const Index = () => {
   return (
-    <div className="min-h-screen bg-background flex flex-col">
+    <div className="min-h-screen bg-background">
       <Header />
-      <main className="flex-1"></main>
+      <main>
+        <HeroSection />
+        <WebFontPreview />
+        <CompareFonts />
+        <TrendingCalligraphy />
+        
+        <PremiumFeatures />
+        <CalligraphyTips />
+        <CalligraphySEOContent />
+      </main>
       <SiteFooter />
     </div>
   );
