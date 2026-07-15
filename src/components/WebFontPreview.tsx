@@ -1,10 +1,24 @@
 import { useState, useCallback, useEffect } from 'react';
-import { Download, Flame, RotateCcw, Loader2, Sparkles } from 'lucide-react';
+import { Download, Flame, RotateCcw, Loader2, Sparkles, Sun, Moon, Palette } from 'lucide-react';
 import { webFontCategories, googleFontsUrl, type WebFont } from '@/lib/webFonts';
 import { toast } from 'sonner';
+import { Slider } from '@/components/ui/slider';
 
 const DEFAULT_TEXT = 'Beautiful Calligraphy';
 const ARABIC_TEXT = 'خطاطة جميلة';
+
+const COLOR_PRESETS = [
+  { label: 'White', value: '#EBEBEB' },
+  { label: 'Gold', value: '#D4A843' },
+  { label: 'Cyan', value: '#00D4FF' },
+  { label: 'Lime', value: '#A3E635' },
+  { label: 'Pink', value: '#F472B6' },
+  { label: 'Orange', value: '#FB923C' },
+  { label: 'Red', value: '#EF4444' },
+  { label: 'Violet', value: '#A78BFA' },
+];
+
+type BgMode = 'dark' | 'light';
 
 const WebFontPreview = () => {
   const [text, setText] = useState('');
