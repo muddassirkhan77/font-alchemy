@@ -1,5 +1,5 @@
 import { useState, useCallback, useRef, useEffect } from 'react';
-import { Menu, X, Crown, ChevronDown, ChevronUp } from 'lucide-react';
+import { Menu, X, ChevronDown, ChevronUp } from 'lucide-react';
 import { instagramCategories } from '@/lib/instagramFonts';
 import { useNavigate } from 'react-router-dom';
 import logo from '@/assets/logo.png';
