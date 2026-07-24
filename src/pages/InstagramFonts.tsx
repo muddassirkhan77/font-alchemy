@@ -2,8 +2,6 @@ import { useState, useCallback, useEffect } from 'react';
 import { RotateCcw, Check, Copy, Sun, Moon, Palette } from 'lucide-react';
 import { instagramCategories } from '@/lib/instagramFonts';
 import { useLocation } from 'react-router-dom';
-import Header from '@/components/Header';
-import SiteFooter from '@/components/SiteFooter';
 import { Slider } from '@/components/ui/slider';
 
 const DEFAULT_PREVIEW = 'FontiFy Preview';
