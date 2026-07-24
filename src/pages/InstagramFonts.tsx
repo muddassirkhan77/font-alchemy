@@ -38,6 +38,7 @@ const InstagramFonts = () => {
   const displayText = text.length > 0 ? text : DEFAULT_PREVIEW;
 
   const previewBg = bgMode === 'dark' ? '#1A1A2E' : '#F5F5F5';
+  const previewTextColor = bgMode === 'dark' ? '#000000' : textColor;
 
   const handleCopy = useCallback(async (transformed: string, key: string) => {
     try {
@@ -81,7 +82,7 @@ const InstagramFonts = () => {
         >
           <p
             className="leading-relaxed break-all text-center line-clamp-2 w-full"
-            style={{ color: textColor, fontSize: `${fontSize}px` }}
+            style={{ color: previewTextColor, fontSize: `${fontSize}px` }}
           >
             {transformed}
           </p>

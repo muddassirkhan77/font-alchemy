@@ -29,6 +29,7 @@ const WebFontPreview = () => {
   const [bgMode, setBgMode] = useState<BgMode>('dark');
 
   const previewBg = bgMode === 'dark' ? '#1A1A2E' : '#F5F5F5';
+  const previewTextColor = bgMode === 'dark' ? '#000000' : textColor;
 
   useEffect(() => {
     if (!document.querySelector(`link[href*="Great+Vibes"]`)) {
@@ -123,7 +124,7 @@ const WebFontPreview = () => {
         >
           <p
             className="leading-relaxed break-all text-center line-clamp-2 w-full"
-            style={{ fontFamily: font.family, color: textColor, fontSize: `${fontSize}px` }}
+            style={{ fontFamily: font.family, color: previewTextColor, fontSize: `${fontSize}px` }}
           >
             {displayText}
           </p>
