@@ -38,7 +38,7 @@ const InstagramFonts = () => {
   const displayText = text.length > 0 ? text : DEFAULT_PREVIEW;
 
   const previewBg = bgMode === 'dark' ? '#1A1A2E' : '#F5F5F5';
-  const previewTextColor = bgMode === 'dark' ? '#000000' : textColor;
+  const previewTextColor = bgMode === 'dark' ? '#FFFFFF' : '#000000';
 
   const handleCopy = useCallback(async (transformed: string, key: string) => {
     try {

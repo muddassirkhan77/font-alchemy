@@ -29,7 +29,7 @@ const WebFontPreview = () => {
   const [bgMode, setBgMode] = useState<BgMode>('dark');
 
   const previewBg = bgMode === 'dark' ? '#1A1A2E' : '#F5F5F5';
-  const previewTextColor = bgMode === 'dark' ? '#000000' : textColor;
+  const previewTextColor = bgMode === 'dark' ? '#FFFFFF' : '#000000';
 
   useEffect(() => {
     if (!document.querySelector(`link[href*="Great+Vibes"]`)) {
