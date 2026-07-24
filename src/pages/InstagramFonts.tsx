@@ -92,7 +92,6 @@ const InstagramFonts = () => {
 
   return (
     <div className="min-h-screen bg-background">
-      <Header />
       <main>
         <section className="section-container pt-6 pb-16">
           <h1 className="font-heading text-4xl font-bold text-foreground md:text-5xl lg:text-6xl text-center mb-6 leading-tight tracking-tight">
@@ -201,7 +200,6 @@ const InstagramFonts = () => {
           </div>
         </section>
       </main>
-      <SiteFooter />
     </div>
   );
 };
